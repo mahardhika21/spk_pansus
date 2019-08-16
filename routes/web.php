@@ -25,6 +25,12 @@ Route::get('login', [
 		"as"    => "web.login.view",
 ])->middleware('AuthLogin');
 
+Route::post('set_login', [
+	   "uses" => "AuthController@set_login",
+	   "as"   => "web.set_login",
+
+])->middleware('AuthLogin');
+
 
 // login
 Route::get('set_session', [
@@ -42,10 +48,13 @@ Route::get('logout', [
 
 // route admin
 Route::group(['middleware' => 'AuthPansus:admin'], function(){
-
-	  Route::get('admin', function(){
-	  		echo "admin";
-	  });
+      
+      // view admin
+	  Route::get('admin', [
+	  		"uses" => "Admin\AdminController@dashboard",
+	  		"as"   => "web.admin.dashboard",
+	  ]);	
+	
 });
 
   // route group panti 

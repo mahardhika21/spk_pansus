@@ -9,7 +9,28 @@ use Illuminate\Routing\UrlGenerator;
 use App\Http\Models\Users;
 
 
-class AminControllers extends Controller
+class AdminController extends Controller
 {
+	private $url;
 
+	function __construct(UrlGenerator $url)
+	{
+		$this->url = $url;
+	}
+
+
+	function dashboard(Request $request)
+	{
+		$data = array
+				(
+					"title"  => "dashboard",
+					"url"    => $this->url->to('/'),
+					"part"   => array
+								(
+									"header"  => "",
+								)
+				);
+
+		return view('admin/dashboard', $data);
+	}
 }
