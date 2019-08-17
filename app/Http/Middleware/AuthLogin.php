@@ -12,7 +12,7 @@ class AuthLogin
 
 	   		if(!empty($sessi))
 	   		{
-	   			return redirect('admin');
+	   			return redirect($sessi['level']);
 	   		}
 
 	   		return $next($request);

@@ -2,7 +2,7 @@
             <div class="widget-header"> <i class="icon-bookmark"></i>
               <h3>Menu</h3>
             </div>
-            <!-- /widget-header -->
+           
             <div class="widget-content">
               <div class="shortcuts"> 
                 <a href="javascript:;" class="shortcut"><i class="shortcut-icon icon-list-alt"></i><span class="shortcut-label">Apps</span> </a>
@@ -11,7 +11,7 @@
                 <a href="javascript:;" class="shortcut"> <i class="shortcut-icon icon-comment"></i><span class="shortcut-label">Comments</span> </a>
 
               </div>
-              <!-- /shortcuts --> 
+              
             </div>
-            <!-- /widget-content --> 
+           
           </div>

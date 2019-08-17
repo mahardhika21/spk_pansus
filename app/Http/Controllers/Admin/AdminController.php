@@ -19,7 +19,7 @@ class AdminController extends Controller
 	}
 
 
-	function dashboard(Request $request)
+	public function dashboard(Request $request)
 	{
 		$data = array
 				(
@@ -27,10 +27,87 @@ class AdminController extends Controller
 					"url"    => $this->url->to('/'),
 					"part"   => array
 								(
-									"header"  => "",
+									"header"  => view('part/header-menu-admin', $this->baseUrl()),
+									"menu"    => view('part/menu-admin', $this->baseUrl())
 								)
 				);
 
 		return view('admin/dashboard', $data);
+	}
+
+
+	public function profile(Request $request)
+	{
+		$sessi = $request->session()->get('roleAuth');
+		$data = array
+				(
+					"title"    => "profile admin",
+					"profile"  => Users::where('username', $sessi['username'])->get(),
+					"part"     => array
+									(
+										"header"  => view('part/header-menu-admin', $this->baseUrl()),
+										"menu"    => view('part/menu-admin', $this->baseUrl())
+									)
+				);
+		return view('admin/profile', $data);
+	}
+
+
+	public function reset_password(Request $request)
+	{
+		$data = array
+				(
+					"title"    => "reset password admin",
+					"url"      => $this->url->to('/'),
+					"part"     => array
+									(
+										"header"  => view('part/header-menu-admin', $this->baseUrl()),
+										"menu"    => view('part/menu-admin', $this->baseUrl())
+									)
+				);
+		return view('admin/reset_password', $data);
+	}
+
+
+	public function users(Request $request)
+	{
+		$data = array
+				(
+					"title"    => "users web",
+					"url"      => $this->url->to('/'),
+					"part"     => array
+									(
+										"header"  => view('part/header-menu-admin', $this->baseUrl()),
+										"menu"    => view('part/menu-admin', $this->baseUrl())
+									)
+				);
+		return view('admin/users', $data);
+	}
+
+
+	public function info(Request $request)
+	{
+		$data = array
+				(
+					"title"    => "users web",
+					"url"      => $this->url->to('/'),
+					"part"     => array
+									(
+										"header"  => view('part/header-menu-admin', $this->baseUrl()),
+										"menu"    => view('part/menu-admin', $this->baseUrl())
+									)
+				);
+		return view('admin/info', $data);
+	}
+
+
+
+
+
+
+
+	private function baseUrl()
+	{
+		return array('url' => $this->url->to('/'));
 	}
 }

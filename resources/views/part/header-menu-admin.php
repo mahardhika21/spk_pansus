@@ -4,7 +4,7 @@
       <ul class="mainnav">
         <li class="active"><a href="index.html"><i class="fa fa-home fa-lg"></i><span>Dashboard</span> </a> </li>
         <li><a href=""><i class="fa fa-user fa-lg"></i><span>Profile</span> </a> </li>
-        <li><a href=""><i class="fa fa-users fa-lg"></i><span>User</span> </a> </li>
+        <li><a href=""><i class="fa fa-users fa-lg"></i><span>Users</span> </a> </li>
         <li><a href=""><i class="fa fa-key fa-lg"></i><span>Reset Password</span> </a></li>
         <li><a href=""><i class="fa fa-info fa-lg"></i><span>About</span> </a> </li>
         <!-- <li><a href="shortcodes.html"><i class="icon-code"></i><span>Shortcodes</span> </a> </li> -->
