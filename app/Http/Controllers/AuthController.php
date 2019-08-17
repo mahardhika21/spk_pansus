@@ -114,7 +114,7 @@ class AuthController extends Controller
 							(
 								"status"  => "error",
 								"code"    => "danger",
-								"message" => "password baru yang di masukkan tidak sama";
+								"message" => "password baru yang di masukkan tidak sama",
 							);
 			}
 			else
@@ -153,8 +153,7 @@ class AuthController extends Controller
 
 					 		}
 					   }
-			     }
-				 else
+					   else
 				 {
 				 		$resp = array
 				 					(
@@ -163,6 +162,8 @@ class AuthController extends Controller
 				 						"message" => "password Lama yang anda masukkan salah",
 				 					);
 				 }
+			     }
+				 
 
 				 return redirect($sessi['level'].'/reset_password')->with(['msg' => $resp]);
 
@@ -170,4 +171,3 @@ class AuthController extends Controller
 			}
 
 		}
-}
