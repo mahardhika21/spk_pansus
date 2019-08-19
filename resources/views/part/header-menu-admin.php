@@ -2,11 +2,11 @@
   <div class="subnavbar-inner">
     <div class="container">
       <ul class="mainnav">
-        <li class="active"><a href="index.html"><i class="fa fa-home fa-lg"></i><span>Dashboard</span> </a> </li>
-        <li><a href=""><i class="fa fa-user fa-lg"></i><span>Profile</span> </a> </li>
-        <li><a href=""><i class="fa fa-users fa-lg"></i><span>Users</span> </a> </li>
-        <li><a href=""><i class="fa fa-key fa-lg"></i><span>Reset Password</span> </a></li>
-        <li><a href=""><i class="fa fa-info fa-lg"></i><span>About</span> </a> </li>
+        <li class="active"><a href="<?php echo $url .'/admin'; ?>"><i class="fa fa-home fa-lg"></i><span>Dashboard</span> </a> </li>
+        <li><a href="<?php echo $url .'/admin/profile'; ?>"><i class="fa fa-user fa-lg"></i><span>Profile</span> </a> </li>
+        <li><a href="<?php echo $url .'/admin/users'; ?>"><i class="fa fa-users fa-lg"></i><span>Users</span> </a> </li>
+        <li><a href="<?php echo $url .'/admin/reset_password'; ?>"><i class="fa fa-key fa-lg"></i><span>Reset Password</span> </a></li>
+        <li><a href="<?php echo $url .'/admin/info'; ?>"><i class="fa fa-info fa-lg"></i><span>About</span> </a> </li>
         <!-- <li><a href="shortcodes.html"><i class="icon-code"></i><span>Shortcodes</span> </a> </li> -->
         <!-- <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-long-arrow-down"></i><span>Drops</span> <b class="caret"></b></a>
           <ul class="dropdown-menu">

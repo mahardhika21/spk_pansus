@@ -21,10 +21,10 @@ class AuthController extends Controller
 
 		public function view_login(Request $request)
 		{
-		//echo '<pre>'.csrf_token() .'<pre>';
-		//	die();
+		
 			$data = array
 						(
+							"title" => "Login | SPK",
 							"url" => $this->url->to('/'),
 						);
 
