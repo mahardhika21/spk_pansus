@@ -42,7 +42,8 @@ class AdminController extends Controller
 		$data = array
 				(
 					"title"    => "profile admin",
-					"profile"  => Users::where('username', $sessi['username'])->get(),
+					"url"      => $this->url->to('/'),
+					"profile"  => User::where('username', $sessi['username'])->get(),
 					"part"     => array
 									(
 										"header"  => view('part/header-menu-admin', $this->baseUrl()),

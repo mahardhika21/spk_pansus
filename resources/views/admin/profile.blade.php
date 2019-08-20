@@ -68,70 +68,73 @@
           <!-- /widget -->
         </div>
         <!-- /span6 --> 
-
+<?php //echo '<pre>'.print_r($profile, true) .'</pre>';
+    // echo $profile[0]['name'];
+ ?>
         <div class="span8">
           <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-list-alt"></i>
-              <h3> Today's Stats</h3>
+            <div class="widget-header"> <i class="fa fa-user fa-lg"></i>
+              <h3> Update Profile Admin</h3>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
               <div class="widget big-stats-container">
                 <div class="widget-content">
-                 <div class="container">
-  <h2>Carousel Example</h2>  
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="la.jpg" alt="Los Angeles" style="width:100%;">
-      </div>
-
-      <div class="item">
-        <img src="chicago.jpg" alt="Chicago" style="width:100%;">
-      </div>
-    
-      <div class="item">
-        <img src="ny.jpg" alt="New york" style="width:100%;">
-      </div>
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
+                  
+                    <form id="edit-profile" method="post" class="form-horizontal" style="margin-top: 12px;" action="<?php echo $url.'/admin/profile_crud/update_proflie'; ?>">
+                  <fieldset>
+                    <div class="controls">
+                         <?php 
+                    $msg = Session::get('msg');
+                    if(!empty($msg)){  ?>
+                              <div class="alert alert-{{@$msg['code']}}">
+                                    <strong>{{@$msg['status']}}</strong> {{ @$msg['message']}}
+                               </div>
+                       <?php } ?>
+                          </div>
+                    <div class="control-group">                     
+                      <label class="control-label" for="firstname">username</label>
+                      <div class="controls">
+                        <input type="text" class="span4" id="firstname" name="username" value="<?php echo $profile[0]['username']; ?>" readonly>
+                      </div> <!-- /controls -->       
+                    </div> <!-- /control-group -->
+                      
+                    
+                    <div class="control-group">                     
+                      <label class="control-label" for="lastname">Name</label>
+                      <div class="controls">
+                        <input type="text" class="span4" id="name_user" name="name"  value="<?php echo $profile[0]['name']; ?>" required="">
+                      </div> <!-- /controls -->       
+                    </div> <!-- /control-group -->
+                    <div class="control-group">                     
+                      <label class="control-label" for="lastname">Phone Number</label>
+                      <div class="controls">
+                        <input type="text" class="span4" id="phone" name="phone"  required="" value="<?php echo $profile[0]['phone']; ?>">
+                      </div> <!-- /controls -->       
+                    </div> <!-- /control-group -->
+                    
+                    
+                    <div class="control-group">                     
+                      <label class="control-label" for="email">Email Address</label>
+                      <div class="controls">
+                        <input type="email" class="span4" id="email" name="email" value="<?php echo $profile[0]['email']; ?>" required="">
+                      </div> <!-- /controls -->       
+                    </div> <!-- /control-group -->
+                                
+                     <br>  
+                    <div class="form-actions">
+                      <button type="submit" class="btn btn-primary">Submit</button> 
+                      <button class="btn">Cancel</button>
+                    </div> <!-- /form-actions -->
+                  </fieldset>
+                </form>
                 </div>
                 <!-- /widget-content --> 
                 
               </div>
             </div>
           </div>
-          <!-- /widget -->
-          <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-list-alt"></i>
-              <h3> Recent News</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <div id='calendar'>
-              </div>
-            </div>
-            <!-- /widget-content --> 
-          </div>
+          
           <!-- /widget -->
           
           <!-- /widget --> 

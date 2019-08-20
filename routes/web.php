@@ -75,6 +75,8 @@ Route::group(['middleware' => 'AuthPansus:admin'], function(){
 	  		"as"   => "web.admin.info",
 	  ]);
 
+	  
+
 
 	  // operation post
 
