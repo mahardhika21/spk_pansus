@@ -95,11 +95,10 @@ Route::group(['middleware' => 'AuthPansus:admin'], function(){
 	  		"as"    => "web.admin.users_crud",
 	  ]);
 
-	  Route::post('admin/backend/info_crud/{info}', [
-	  		"users"	=> "Admin\AdminBackendController@info_crud",
+	  Route::post('admin/backend/info_crud/', [
+	  		"uses"	=> "Admin\AdminBackendController@info_crud",
 	  		"as"    => "web.admin.info_crud",
 	  ]);
-
 
 	  // dattable
 

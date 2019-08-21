@@ -81,7 +81,7 @@
               <div class="widget big-stats-container">
                 <div class="widget-content">
                   
-                    <form id="edit-profile" method="post" class="form-horizontal" style="margin-top: 12px;" action="<?php echo $url.'/admin/profile_crud/update_proflie'; ?>">
+                    <form id="edit-profile" method="post" class="form-horizontal" style="margin-top: 12px;" action="<?php echo $url.'/admin/backend/profile_crud/update_profile'; ?>">
                   <fieldset>
                     <div class="controls">
                          <?php 
@@ -123,6 +123,7 @@
                                 
                      <br>  
                     <div class="form-actions">
+                      <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                       <button type="submit" class="btn btn-primary">Submit</button> 
                       <button class="btn">Cancel</button>
                     </div> <!-- /form-actions -->

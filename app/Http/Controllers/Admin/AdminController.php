@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Routing\UrlGenerator;
-use App\Http\Models\Users;
+use App\Model\Users;
+use App\Model\Extra;
 
 
 class AdminController extends Controller
@@ -66,6 +67,7 @@ class AdminController extends Controller
 										"menu"    => view('part/menu-admin', $this->baseUrl())
 									)
 				);
+				
 		return view('admin/reset_password', $data);
 	}
 
@@ -90,14 +92,16 @@ class AdminController extends Controller
 	{
 		$data = array
 				(
-					"title"    => "users web",
+					"title"    => "Info web",
 					"url"      => $this->url->to('/'),
+					"info"     => Extra::where('type','info')->get(),
 					"part"     => array
 									(
 										"header"  => view('part/header-menu-admin', $this->baseUrl()),
 										"menu"    => view('part/menu-admin', $this->baseUrl())
 									)
 				);
+
 		return view('admin/info', $data);
 	}
 
