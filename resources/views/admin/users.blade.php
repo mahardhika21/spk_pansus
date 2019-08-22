@@ -13,8 +13,7 @@
 <link href="<?php echo $url .'/assets/css/font-awesome.css'; ?>" rel="stylesheet">
 <link href="<?php echo $url .'/assets/css/style.css'; ?>" rel="stylesheet">
 <link href="<?php echo $url .'/assets/css/pages/dashboard.css'; ?>" rel="stylesheet">
-
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 </head>
 <body>
 <div class="navbar navbar-fixed-top">
@@ -71,67 +70,68 @@
 
         <div class="span8">
           <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-list-alt"></i>
-              <h3> Today's Stats</h3>
+            <div class="widget-header"> 
+              <h3> User Data</h3><i class="fa fa-users"></i>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
               <div class="widget big-stats-container">
-                <div class="widget-content">
-                 <div class="container">
-  <h2>Carousel Example</h2>  
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
+                <div class="widget-content" style="margin: 12px;">
+                    <!-- Trigger the modal with a button -->
+<a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Tambah Data User</a>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="la.jpg" alt="Los Angeles" style="width:100%;">
-      </div>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
-      <div class="item">
-        <img src="chicago.jpg" alt="Chicago" style="width:100%;">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
       </div>
-    
-      <div class="item">
-        <img src="ny.jpg" alt="New york" style="width:100%;">
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
 
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
   </div>
 </div>
+
+                   
+                             
+                                                            <table class="table" id="table-user" style="margin: 12px;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>#</th>
+                                                                        <th>Nama</th>
+                                                                        <th>Username</th>
+                                                                        <th>email</th>
+                                                                        <th>phone Number</th>
+                                                                        <th>Option</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table> 
+                  
                 </div>
                 <!-- /widget-content --> 
-                
               </div>
             </div>
           </div>
-          <!-- /widget -->
-          <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-list-alt"></i>
-              <h3> Recent News</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <div id='calendar'>
-              </div>
-            </div>
-            <!-- /widget-content --> 
-          </div>
+          
           <!-- /widget -->
           
           <!-- /widget --> 
@@ -149,27 +149,80 @@
 
 
 
-<!-- <div class="footer fixed">
-  <div class="footer-inner">
-    <div class="container">
-      <div class="row">
-        <div class="span12"> &copy; 2013 <a href="http://www.egrappler.com/">Bootstrap Responsive Admin Template</a>. </div>
-       
-      </div>
-    </div>
-    
-  </div>
-  
-</div>
- -->
 
 <script src="<?php echo $url .'/assets/js/jquery-1.7.2.min.js'; ?>"></script> 
-<script src="<?php echo $url .'/asset/js/excanvas.min.js'; ?>"></script> 
-<script src="js/chart.min.js" type="text/javascript"></script> 
+<script src="<?php echo $url .'/assets/js/excanvas.min.js'; ?>"></script> 
+<script src="<?php echo $url.'/assets/js/chart.min.js'; ?>" type="text/javascript"></script> 
 <script src="<?php echo $url .'/assets/js/bootstrap.js'; ?>"></script>
-<script language="javascript" type="text/javascript" src="<?php echo $url .'/asset/js/full-calendar/fullcalendar.min.js'; ?>"></script>
- 
 <script src="<?php echo $url .'/assets/js/base.js'; ?>"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+<script>
+  $(function(){
+      var baseUrl = '<?php echo $url; ?>';
+
+      var table = $('#table-user').DataTable({
+          processing : true,
+          serverside : true,
+          seraching  : true,
+          ajax       : 'data/list_users_json',
+          columns    : [
+                          {data : 'id_user',name : 'id_user'},
+                          {data : 'name', name : 'name'},
+                          {data : 'username', name : 'username'},
+                          {data : 'email', name : 'email'},
+                          {data : 'phone', name : 'phone'},
+                          {render : function(data, type, full, type)
+                            {
+                                return  " <button id='btnDelete' href='ss' data-id="+full.username+" class='btn btn-danger btnDetails'>Delete Data</button>";
+                            }
+                        }
+                       ]
+
+      });
+
+      table.on('order.dt search.dt',function(){
+                table.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                        cell.innerHTML = i+1;
+                });
+      }).draw();
+
+        $('#table-baak').on('click','[id=btnDelete]', function(){
+                let uname = $(this).data('id');
+
+                cnf = confirm("Apakah Anda Yakin Menghapus Data Mahasiswa Dengan Nim "+ uname +" ?");
+                if(cnf)
+                {
+                    $.ajax({
+                            url      : baseUrl + '/admin/delete_data_user',
+                            type     : 'POST',
+                            dataType : 'JSON',
+                            data     : {username:uname}, 
+                            success  : function(resp)
+                            {
+                                    if(resp.message == 'true')
+                                    {
+                                        alert(resp.message);
+                                        window.location.reload();
+                                    }
+                                    else
+                                    {
+                                        alert(resp.message);
+                                        window.location.reload();
+                                    }
+                            },error : function(resp)
+                            {
+                                  alert('Kesalahan, jaringan');
+                            }
+                    });
+                }
+           });
+
+        });
+
+
+
+</script>
 
 </body>
 </html>

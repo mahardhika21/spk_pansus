@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Model\Extra;
 use App\Model\Users;
+use DataTables;
 
 class AdminBackendController extends Controller
 {
@@ -182,5 +183,11 @@ class AdminBackendController extends Controller
 			}
 
 			return redirect('admin/info')->with(['msg' => $resp]);
-		}	  
+		}
+
+	function list_users_json(Request $request)
+	{
+		$sessi = $request->session()->get('roleAuth');
+		return DataTables::of(User::where('username','!=',$sessi['username'])->get())->make('true');
+	}	  
 }
