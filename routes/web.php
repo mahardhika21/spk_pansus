@@ -100,6 +100,8 @@ Route::group(['middleware' => 'AuthPansus:admin'], function(){
 	  		"as"    => "web.admin.info_crud",
 	  ]);
 
+	  
+
 	  // dattable
 
 	  Route::get('admin/data/list_users_json', [

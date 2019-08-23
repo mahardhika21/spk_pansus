@@ -50,6 +50,7 @@
 
   {!!$part['header']!!}
   <!-- /subnavbar-inner --> 
+  <?php $csrfToken = csrf_token(); ?>
 </div>
 
 
@@ -76,30 +77,17 @@
             <!-- /widget-header -->
             <div class="widget-content">
               <div class="widget big-stats-container">
+                 <?php 
+     $msg = Session::get('msg');
+
+    if(!empty($msg)){  ?>
+              <div class="alert alert-{{@$msg['code']}}">
+                    <strong>{{@$msg['status']}}</strong> {{ @$msg['message']}}
+               </div>
+       <?php } ?>
                 <div class="widget-content" style="margin: 12px;">
-                    <!-- Trigger the modal with a button -->
-<a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Tambah Data User</a>
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
+                  <a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addUser">Tambah Data User</a>
 
                    
                              
@@ -147,6 +135,54 @@
   <!-- /main-inner --> 
 </div>
 
+<div id="addUser" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <form id="form-add-user" method="post" class="form-horizontal" style="margin-top: 12px;" action="<?php echo $url.'/admin/backend/users_crud/insert_data'; ?>">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Tambah Data User</h4>
+      </div>
+      <div class="modal-body">
+         
+                  <fieldset>
+                    <div class="control-group">                     
+                      <label class="control-label" for="firstname">username</label>
+                      <div class="controls">
+                        <input type="text" class="span4" id="username" name="username" value="" required="">
+                      </div> <!-- /controls -->       
+                    </div> <!-- /control-group -->
+                      
+                    
+                    <div class="control-group">                     
+                      <label class="control-label" for="lastname">Level</label>
+                      <div class="controls">
+                        <select class="span4" id="level_user" name="level">
+                          <option value="admin">Admin</option>
+                          <option value="user">User</option>
+                        </select>
+                      </div> <!-- /controls -->       
+                    </div> <!-- /control-group -->
+                    <div class="control-group">                     
+                      <label class="control-label" for="email">Email Address</label>
+                      <div class="controls">
+                        <input type="hidden" name="_token" value="<?php echo $csrfToken; ?>">
+                        <input type="email" class="span4" id="email" name="email" value="" required="">
+                      </div> <!-- /controls -->       
+                    </div> <!-- /control-group -->      
+                     <br> 
+                  </fieldset>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-info" id="insData">tambah user</a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </form>
+    </div>
+
+  </div>
+</div>
 
 
 
@@ -161,6 +197,7 @@
   $(function(){
       var baseUrl = '<?php echo $url; ?>';
 
+
       var table = $('#table-user').DataTable({
           processing : true,
           serverside : true,
@@ -172,9 +209,9 @@
                           {data : 'username', name : 'username'},
                           {data : 'email', name : 'email'},
                           {data : 'phone', name : 'phone'},
-                          {render : function(data, type, full, type)
+                          {render : function(data, type, full, meta)
                             {
-                                return  " <button id='btnDelete' href='ss' data-id="+full.username+" class='btn btn-danger btnDetails'>Delete Data</button>";
+                                return  " <button id='btnDelete' href='ss' data-level="+full.level+" data-id="+full.username+" class='btn btn-danger btnDetails'>Delete Data</button>";
                             }
                         }
                        ]
@@ -187,17 +224,19 @@
                 });
       }).draw();
 
-        $('#table-baak').on('click','[id=btnDelete]', function(){
+        $('#table-user').on('click','[id=btnDelete]', function(){
                 let uname = $(this).data('id');
+                let level = $(this).data('level');
+                let token = '<?php echo $csrfToken; ?>';
 
-                cnf = confirm("Apakah Anda Yakin Menghapus Data Mahasiswa Dengan Nim "+ uname +" ?");
+                cnf = confirm("Apakah Anda Yakin Menghapus Data "+ level +" dengan username "+ uname +" ?");
                 if(cnf)
                 {
                     $.ajax({
-                            url      : baseUrl + '/admin/delete_data_user',
+                            url      : baseUrl + '/admin/backend/users_crud/delete_data/',
                             type     : 'POST',
                             dataType : 'JSON',
-                            data     : {username:uname}, 
+                            data     : {uname:uname,_token:token}, 
                             success  : function(resp)
                             {
                                     if(resp.message == 'true')
@@ -213,12 +252,18 @@
                             },error : function(resp)
                             {
                                   alert('Kesalahan, jaringan');
+                                  window.location.reload();
                             }
                     });
                 }
            });
 
+
+        $('#insData').on('click', function(){
+                $('#form-add-user').submit();
         });
+
+  });
 
 
 
