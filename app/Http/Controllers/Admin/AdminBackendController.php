@@ -230,9 +230,12 @@ class AdminBackendController extends Controller
 								"level"     => $request->input('level'),
 								"email"     => $request->input('email'),
 								"password"  => md5($request->input('username')),
+								"access"    => $request->input('level'),
 							);
 
 				User::insert($arr_data);
+
+				DB::commit();
 
 				$resp['status']   = 'true';
 				$resp['code']    = 'success';

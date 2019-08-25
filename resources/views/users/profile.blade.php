@@ -28,7 +28,8 @@
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
                             class="icon-user"></i> admin <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="{{@$url}}/logout">Logout</a></li>
+              <li><a href="">Profile</a></li>
+              <li><a href="">Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -72,15 +73,15 @@
  ?>
         <div class="span8">
           <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="fa fa-key fa-lg"></i>
-              <h3> Reset Password Admin</h3>
+            <div class="widget-header"> <i class="fa fa-user fa-lg"></i>
+              <h3> Update Profile Admin</h3>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
               <div class="widget big-stats-container">
                 <div class="widget-content">
                   
-                    <form id="edit-profile" method="post" class="form-horizontal" style="margin-top: 12px;" action="<?php echo $url.'/admin/backend/profile_crud/reset_password'; ?>">
+                    <form id="edit-profile" method="post" class="form-horizontal" style="margin-top: 12px;" action="<?php echo $url.'/admin/backend/profile_crud/update_profile'; ?>">
                   <fieldset>
                     <div class="controls">
                          <?php 
@@ -92,25 +93,34 @@
                        <?php } ?>
                           </div>
                     <div class="control-group">                     
-                      <label class="control-label" for="firstname">Password Lama</label>
+                      <label class="control-label" for="firstname">username</label>
                       <div class="controls">
-                        <input type="password" class="span4" id="old_password" name="old_password" value="<?php //echo $profile[0]['username']; ?>" required="">
+                        <input type="text" class="span4" id="firstname" name="username" value="<?php echo $profile[0]['username']; ?>" readonly>
                       </div> <!-- /controls -->       
                     </div> <!-- /control-group -->
                       
                     
                     <div class="control-group">                     
-                      <label class="control-label" for="lastname">Password Baru</label>
+                      <label class="control-label" for="lastname">Name</label>
                       <div class="controls">
-                        <input type="password" class="span4" id="new_password" name="new_password"  value="<?php //echo $profile[0]['name']; ?>" required="">
+                        <input type="text" class="span4" id="name_user" name="name"  value="<?php echo $profile[0]['name']; ?>" required="">
                       </div> <!-- /controls -->       
                     </div> <!-- /control-group -->
                     <div class="control-group">                     
-                      <label class="control-label" for="lastname">Ulangi Password Baru</label>
+                      <label class="control-label" for="lastname">Phone Number</label>
                       <div class="controls">
-                        <input type="password" class="span4" id="renew_password" name="renew_password"  required="" value="<?php //echo $profile[0]['phone']; ?>">
+                        <input type="text" class="span4" id="phone" name="phone"  required="" value="<?php echo $profile[0]['phone']; ?>">
                       </div> <!-- /controls -->       
                     </div> <!-- /control-group -->
+                    
+                    
+                    <div class="control-group">                     
+                      <label class="control-label" for="email">Email Address</label>
+                      <div class="controls">
+                        <input type="email" class="span4" id="email" name="email" value="<?php echo $profile[0]['email']; ?>" required="">
+                      </div> <!-- /controls -->       
+                    </div> <!-- /control-group -->
+                                
                      <br>  
                     <div class="form-actions">
                       <input type="hidden" name="_token" value="{{csrf_token()}}"/>

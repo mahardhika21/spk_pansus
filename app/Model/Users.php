@@ -12,6 +12,6 @@ class Users extends Model
     protected $primarykey ='id_user';
 	
 	// filed table
-	protected $filelable = ['id_user', 'username', 'password', 'level','access','name','email','phone','insert_time','update_time'];
+	protected $filelable = ['id_user', 'username', 'password', 'level','access','name','email','phone','insert_at','updated_at'];
 
 }

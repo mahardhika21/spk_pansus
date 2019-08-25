@@ -27,8 +27,7 @@
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
                             class="icon-user"></i> admin <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="">Profile</a></li>
-              <li><a href="">Logout</a></li>
+              <li><a href="{{@$url}}/logout">Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -95,16 +94,14 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th>#</th>
-                                                                        <th>Nama</th>
                                                                         <th>Username</th>
+                                                                        <th>Level</th>
                                                                         <th>email</th>
-                                                                        <th>phone Number</th>
                                                                         <th>Option</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td></td>
                                                                         <td></td>
                                                                         <td></td>
                                                                         <td></td>
@@ -205,10 +202,9 @@
           ajax       : 'data/list_users_json',
           columns    : [
                           {data : 'id_user',name : 'id_user'},
-                          {data : 'name', name : 'name'},
                           {data : 'username', name : 'username'},
+                          {data : 'level', name : 'level'},
                           {data : 'email', name : 'email'},
-                          {data : 'phone', name : 'phone'},
                           {render : function(data, type, full, meta)
                             {
                                 return  " <button id='btnDelete' href='ss' data-level="+full.level+" data-id="+full.username+" class='btn btn-danger btnDetails'>Delete Data</button>";

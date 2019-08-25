@@ -28,7 +28,7 @@ class AdminController extends Controller
 					"url"    => $this->url->to('/'),
 					"part"   => array
 								(
-									"header"  => view('part/header-menu-admin', $this->baseUrl()),
+									"header"  => view('part/header-menu-admin', $this->baseUrl('dashboard')),
 									"menu"    => view('part/menu-admin', $this->baseUrl())
 								)
 				);
@@ -47,7 +47,7 @@ class AdminController extends Controller
 					"profile"  => User::where('username', $sessi['username'])->get(),
 					"part"     => array
 									(
-										"header"  => view('part/header-menu-admin', $this->baseUrl()),
+										"header"  => view('part/header-menu-admin', $this->baseUrl('profile')),
 										"menu"    => view('part/menu-admin', $this->baseUrl())
 									)
 				);
@@ -63,7 +63,7 @@ class AdminController extends Controller
 					"url"      => $this->url->to('/'),
 					"part"     => array
 									(
-										"header"  => view('part/header-menu-admin', $this->baseUrl()),
+										"header"  => view('part/header-menu-admin', $this->baseUrl('reset_password')),
 										"menu"    => view('part/menu-admin', $this->baseUrl())
 									)
 				);
@@ -80,7 +80,7 @@ class AdminController extends Controller
 					"url"      => $this->url->to('/'),
 					"part"     => array
 									(
-										"header"  => view('part/header-menu-admin', $this->baseUrl()),
+										"header"  => view('part/header-menu-admin', $this->baseUrl('users')),
 										"menu"    => view('part/menu-admin', $this->baseUrl())
 									)
 				);
@@ -97,7 +97,7 @@ class AdminController extends Controller
 					"info"     => Extra::where('type','info')->get(),
 					"part"     => array
 									(
-										"header"  => view('part/header-menu-admin', $this->baseUrl()),
+										"header"  => view('part/header-menu-admin', $this->baseUrl('about')),
 										"menu"    => view('part/menu-admin', $this->baseUrl())
 									)
 				);
@@ -111,8 +111,8 @@ class AdminController extends Controller
 
 
 
-	private function baseUrl()
+	private function baseUrl($page='')
 	{
-		return array('url' => $this->url->to('/'));
+		return array('url' => $this->url->to('/'),'page' => $page);
 	}
 }
