@@ -115,7 +115,34 @@ Route::group(['middleware' => 'AuthPansus:admin'], function(){
   // route group panti 
 Route::group(['middleware' => 'AuthPansus:user'], function(){
 	
-	Route::get('panti', function(){
-		echo "panti";
-	});
+	// view user
+
+	  Route::get('user', [
+	  		"uses"  => "User\UserController@dashboard",
+	  		"as"    => "web.user.dashboard",
+	  ]);
+
+	  Route::get('user/profile', [
+	  		"uses"  => "User\UserController@profile",
+	  		"as"	=> "web.user.profile",
+	  ]);
+
+	  Route::get('user/reset_password', [
+	  		"uses"	=> "User\UserController@reset_password",
+	  		"as"    => "web.user.profile",
+	  ]);
+
+	  //post data
+
+	   Route::post('user/backend/reset_password', [
+	  		"uses" => "User\UserBackendController@reset_password",
+	  		"as"   => "web.admin.backend_resert_password",
+	  ]);
+
+	  Route::post('user/backend/profile_crud/{type}', [
+	  		"uses"  => "User\UserBackendController@profile_crud",
+	  		"as"    => "web.admin.profile_crud",
+	  ]);
+
+
 });

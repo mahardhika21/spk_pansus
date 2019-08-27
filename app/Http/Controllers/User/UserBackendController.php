@@ -26,7 +26,7 @@ class UserBackendController extends Controller
 					$resp['code']    = 'danger';
 					$resp['message'] = 'email input is alareday exits';
 
-					return redirect('admin/profile')->with(['msg'=>$resp]);
+					return redirect('user/profile')->with(['msg'=>$resp]);
 				}
 
 				DB::beginTransaction();
@@ -55,7 +55,7 @@ class UserBackendController extends Controller
 					$resp['message'] = $e->getMessage();
 				}
 
-				return redirect('admin/profile')->with(['msg'=> $resp]);
+				return redirect('user/profile')->with(['msg'=> $resp]);
 			}
 			elseif($type == "reset_password")
 			{
@@ -75,7 +75,7 @@ class UserBackendController extends Controller
 						$resp['code']    = 'danger';
 						$resp['message'] = 'password minimun 6 karakter';
 
-						return redirect('admin/reset_password')->with(['msg' => $resp]);
+						return redirect('user/reset_password')->with(['msg' => $resp]);
 					}
 
 
@@ -113,11 +113,11 @@ class UserBackendController extends Controller
 				else
 				{
 					$resp['status']  = 'false';
-					$resp['code']    = 'code';
+					$resp['code']    = 'danger';
 					$resp['message'] = 'update password galat, old password wrong';
  				}
 
- 				return redirect('admin/reset_password')->with(['msg'=> $resp]);
+ 				return redirect('user/reset_password')->with(['msg'=> $resp]);
 			}
 
 

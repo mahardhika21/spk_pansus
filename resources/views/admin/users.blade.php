@@ -76,20 +76,20 @@
             <!-- /widget-header -->
             <div class="widget-content">
               <div class="widget big-stats-container">
-                 <?php 
-     $msg = Session::get('msg');
-
-    if(!empty($msg)){  ?>
-              <div class="alert alert-{{@$msg['code']}}">
-                    <strong>{{@$msg['status']}}</strong> {{ @$msg['message']}}
-               </div>
-       <?php } ?>
+                
                 <div class="widget-content" style="margin: 12px;">
 
                   <a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addUser">Tambah Data User</a>
 
                    
-                             
+                              <?php 
+     $msg = Session::get('msg');
+
+    if(!empty($msg)){  ?>
+              <div class="alert alert-{{@$msg['code']}}" style="margin-top: 2px;">
+                    <strong>{{@$msg['status']}}</strong> {{ @$msg['message']}}
+               </div>
+       <?php } ?>
                                                             <table class="table" id="table-user" style="margin: 12px;">
                                                                 <thead>
                                                                     <tr>

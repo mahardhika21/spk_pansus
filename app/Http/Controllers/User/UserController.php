@@ -26,6 +26,7 @@ class UserController extends Controller
 				(
 					"title"  => "dashboard",
 					"url"    => $this->url->to('/'),
+					"info"   => Extra::where('type', 'info')->get(),
 					"part"   => array
 								(
 									"header"  => view('part/header-menu-panti', $this->baseUrl('dashboard')),
@@ -42,7 +43,7 @@ class UserController extends Controller
 		$sessi = $request->session()->get('roleAuth');
 		$data = array
 				(
-					"title"    => "profile admin",
+					"title"    => "profile user",
 					"url"      => $this->url->to('/'),
 					"profile"  => User::where('username', $sessi['username'])->get(),
 					"part"     => array
@@ -59,11 +60,11 @@ class UserController extends Controller
 	{
 		$data = array
 				(
-					"title"    => "reset password admin",
+					"title"    => "reset password user",
 					"url"      => $this->url->to('/'),
 					"part"     => array
 									(
-										"header"  => view('part/header-menu-admin', $this->baseUrl('reset_password')),
+										"header"  => view('part/header-menu-panti', $this->baseUrl('reset_password')),
 										"menu"    => view('part/menu-admin', $this->baseUrl())
 									)
 				);
@@ -74,6 +75,6 @@ class UserController extends Controller
 
 	private function baseUrl($page='')
 	{
-		return array('url' => $this->url->to('/'),'page'=> "page");
+		return array('url' => $this->url->to('/'),'page'=> $page);
 	}
 }

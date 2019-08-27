@@ -28,8 +28,7 @@
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
                             class="icon-user"></i> admin <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="">Profile</a></li>
-              <li><a href="">Logout</a></li>
+              <li><a href="{{@$url}}/logout">Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -74,14 +73,14 @@
         <div class="span8">
           <div class="widget widget-nopad">
             <div class="widget-header"> <i class="fa fa-user fa-lg"></i>
-              <h3> Update Profile Admin</h3>
+              <h3> Update Profile User</h3>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
               <div class="widget big-stats-container">
                 <div class="widget-content">
                   
-                    <form id="edit-profile" method="post" class="form-horizontal" style="margin-top: 12px;" action="<?php echo $url.'/admin/backend/profile_crud/update_profile'; ?>">
+                    <form id="edit-profile" method="post" class="form-horizontal" style="margin-top: 12px;" action="<?php echo $url.'/user/backend/profile_crud/update_profile'; ?>">
                   <fieldset>
                     <div class="controls">
                          <?php 

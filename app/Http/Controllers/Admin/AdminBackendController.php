@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Model\Extra;
 use App\Model\Users;
 use DataTables;
+use Illuminate\Support\Facades\Validator;
 
 class AdminBackendController extends Controller
 {
@@ -200,25 +201,37 @@ class AdminBackendController extends Controller
 		if($type == "insert_data")
 		{
 
-			$request->validate([
-								   "username" => "required|min:6|max:15",
-								   "level"    => "required",
-								   "email"    => 'required|email'
-							   ]);
 
-			
+			// start validate
+			$rules = array(
+							"username" => "required|min:6|max:15",
+							"level"    => "required",
+							"email"    => 'required|email'
+						   );
+			$message = array(
+								"username.required" => "username cannot by null",
+								"username.min"      => "username minimal 6 caracter",
+								"username.max"      => "username maximal 15 caracter",
+								"level.required"    => "level cannot by null",
+								"email.required"	=> "email cannot by null",
+								"email.email"       => "format email wrong",
+							);
 
+			$validator = validator::make($request->all(), $rules, $message);
 
-			// if($request->input('level') != 'admin' or $request->input('level') != 'user')
-			// {
-			// 	$resp['status']  = 'false';
-			// 	$resp['code']    = 'danger';
-			// 	$resp['message'] = 'level cannot by null and must admin or user';
+			if ($validator->fails())
+			{
+				$errors = $validator->messages()->first();
+			  
 
-			// 	 return redirect('admin/users')->with(['msg'=> $resp]);
+			    $resp['status']  = 'false';
+				$resp['code']    = 'danger';
+				$resp['message'] =  $errors;
 
-			// 	//return response()->json($resp, 200);
-			// }
+				return redirect('admin/users')->with(['msg'=> $resp]);
+			}
+
+			// end validate
 
 			DB::beginTransaction();
 
@@ -248,6 +261,7 @@ class AdminBackendController extends Controller
 				$resp['message'] = $e->getMessage();
 			}
 
+			
 			return redirect('admin/users')->with(['msg'=> $resp]);
 			// return response()->json($resp, 200);
 
