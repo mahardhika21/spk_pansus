@@ -32,9 +32,10 @@ class ValidatorHelpers
 		   {
 		   	   $message = array
 		   	   			(
-		   	   				"nama_pangan"   	 => "required",
-							"type_pangan"   	 => "required",
-							"kalori_pangan" 	 => "required|numeric",
+		   	   				"nama_pangan.required"   	 => "nama pangan harus di isi",
+							"type_pangan.required"   	 => "type pangan harus di isi",
+							"kalori_pangan.required" 	 => "kalori pangan harus di isi",
+							"kalori_pangan.numeric"      => "kalori pangan harus berupa angka atau numeric"
 							"protein_pangan"     => "required|numeric",
 							"lemak_pangan"       => "required|numeric",
 							"satuan_pangan"      => "required",
