@@ -319,14 +319,50 @@ class AdminBackendController extends Controller
 	}
 
 
-	public function pangan_crud(Request $request, $type)
+	public function pangan_crud(Request $request, $type, $pangan)
 	{
 		//$rule = New ValidatorHelpers();
 		//echo $type;
 		//echo $this->rule->coba();
 
-		echo '<pre>'.print_r($this->rule->rulesValidator($type), true) .'</pre>';
+		//echo '<pre>'.print_r($this->rule->rulesValidator($type), true) .'</pre>';
 	   // echo '<pre>'. print_r( ValidatorHelpers::rulesValidator('insert_data_pangan'), true).'</pre>';	
+
+		if($type == "insert_data_pangan")
+		{
+
+			$validator = Validator::make($request->all(), $this->rule->rulesValidator($type), $this->rule->messageValidator($type))
+
+			if($validator->fails())
+			{
+				$resp['status'] = 'true';
+				$resp['code']   = 'danger';
+				$resp['message'] = $validator->messages()->first();
+
+				return redirect('admin/'. $pangan);
+			}
+
+			DB::beginTransaction();
+
+			try
+			{
+				Pangan::insert($request->all());
+
+				DB::commit();
+				$resp['status'] = 'true';
+				$resp['code']   = 'danger';
+				$resp['message'] = $e->getMessage();
+
+
+
+			}catch(\Illuminate\Database\QueryException $e)
+			{
+				$resp['status'] = 'true';
+				$resp['code']   = 'danger';
+				$resp['message'] = $e->getMessage();	
+			}
+
+		}
 	}
 
 
