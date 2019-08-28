@@ -84,7 +84,7 @@
                   <fieldset>
                     <div class="controls">
                          <?php 
-                    $msg = Session::get('msg');
+                          $msg = Session::get('msg');
                     if(!empty($msg)){  ?>
                               <div class="alert alert-{{@$msg['code']}}">
                                     <strong>{{@$msg['status']}}</strong> {{ @$msg['message']}}
@@ -97,8 +97,6 @@
                         <input type="password" class="span4" id="old_password" name="old_password" value="<?php //echo $profile[0]['username']; ?>" required="">
                       </div> <!-- /controls -->       
                     </div> <!-- /control-group -->
-                      
-                    
                     <div class="control-group">                     
                       <label class="control-label" for="lastname">Password Baru</label>
                       <div class="controls">
@@ -141,21 +139,6 @@
   <!-- /main-inner --> 
 </div>
 
-
-
-<!-- <div class="footer fixed">
-  <div class="footer-inner">
-    <div class="container">
-      <div class="row">
-        <div class="span12"> &copy; 2013 <a href="http://www.egrappler.com/">Bootstrap Responsive Admin Template</a>. </div>
-       
-      </div>
-    </div>
-    
-  </div>
-  
-</div>
- -->
 
 <script src="<?php echo $url .'/assets/js/jquery-1.7.2.min.js'; ?>"></script> 
 <script src="<?php echo $url .'/asset/js/excanvas.min.js'; ?>"></script> 
