@@ -100,6 +100,11 @@ Route::group(['middleware' => 'AuthPansus:admin'], function(){
 	  		"as"    => "web.admin.info_crud",
 	  ]);
 
+	  Route::get('admin/pangan_crud/{type}', [
+	  		"uses" 	=> "Admin\AdminBackendController@pangan_crud",
+	  		"as"	=> "web.admin.pangan_crud"
+	  ]);
+
 	  
 
 	  // dattable

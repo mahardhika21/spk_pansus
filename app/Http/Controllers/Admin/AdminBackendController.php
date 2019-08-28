@@ -9,9 +9,16 @@ use App\Model\Extra;
 use App\Model\Users;
 use DataTables;
 use Illuminate\Support\Facades\Validator;
+use App\Helpers\ValidatorHelpers;
 
 class AdminBackendController extends Controller
 {
+		private $rule;
+
+		function __construct()
+		{
+				$this->rule = new ValidatorHelpers();
+		}
 		public function profile_crud(Request $request, $type)
 		{
 			$sessi = $request->session()->get('roleAuth');
@@ -310,4 +317,19 @@ class AdminBackendController extends Controller
 			return redirect('admin/user')->with(['msg'=> $resp]);
 		}
 	}
+
+
+	public function pangan_crud(Request $request, $type)
+	{
+		//$rule = New ValidatorHelpers();
+		//echo $type;
+		//echo $this->rule->coba();
+
+		echo '<pre>'.print_r($this->rule->rulesValidator($type), true) .'</pre>';
+	   // echo '<pre>'. print_r( ValidatorHelpers::rulesValidator('insert_data_pangan'), true).'</pre>';	
+	}
+
+
+
+	
 }
