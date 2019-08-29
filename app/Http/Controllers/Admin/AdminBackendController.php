@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Model\Extra;
 use App\Model\Users;
+use App\Model\Pangan;
 use DataTables;
 use Illuminate\Support\Facades\Validator;
 use App\Helpers\ValidatorHelpers;
@@ -200,6 +201,11 @@ class AdminBackendController extends Controller
 		$sessi = $request->session()->get('roleAuth');
 		return DataTables::of(User::where('username','!=',$sessi['username'])->get())->make('true');
 	}	  
+    
+    function list_pangan_json(Request $request, $type)
+    {
+    	return DataTables::of(Pangan::where('type_pangan', $type)->get())->make('true');	
+    }
 
 
 	public function users_crud(Request $request, $type)
@@ -331,7 +337,7 @@ class AdminBackendController extends Controller
 		if($type == "insert_data_pangan")
 		{
 
-			$validator = Validator::make($request->all(), $this->rule->rulesValidator($type), $this->rule->messageValidator($type))
+			$validator = Validator::make($request->all(), $this->rule->rulesValidator($type), $this->rule->messageValidator($type));
 
 			if($validator->fails())
 			{

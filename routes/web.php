@@ -75,6 +75,24 @@ Route::group(['middleware' => 'AuthPansus:admin'], function(){
 	  		"as"   => "web.admin.info",
 	  ]);
 
+	  Route::get('admin/lauk', [
+	  		"uses" => "Admin\AdminController@lauk_view",
+	  		"as"   => "web.admin.lauk",
+	  ]);
+
+	  Route::get('admin/sayur', [
+	  		"uses" => "Admin\AdminController@sayur_view",
+	  		"as"   => "web.admin.sayur",
+	  ]);
+
+	  Route::get('admin/pangan_pokoo', [
+	  		"uses" => "Admin\AdminController@makanpokok_view",
+	  		"as"   => "web.admin.makanpokok_view",
+	  ]);
+
+
+
+
 	  
 
 
@@ -112,6 +130,11 @@ Route::group(['middleware' => 'AuthPansus:admin'], function(){
 	  Route::get('admin/data/list_users_json', [
 	  		"uses"  => "Admin\AdminBackendController@list_users_json",
 	  		"as" 	=> "web.admin.list_users_json",
+	  ]);
+
+	  Route::get('admin/data/list_pangan_json/{type}', [
+	  		"uses"  => "Admin\AdminBackendController@list_pangan_json",
+	  		"as"    => "web.admin.list_pangan_json",
 	  ]);
 
 	
