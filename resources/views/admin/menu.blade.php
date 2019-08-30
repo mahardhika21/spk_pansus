@@ -74,7 +74,7 @@
         <div class="span12">
           <div class="widget widget-nopad">
             <div class="widget-header"> 
-              <h3> Data Lauk</h3><i class="fa fa-cutlery"></i>
+              <h3> Data Sayur</h3><i class="fa fa-cutlery"></i>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
@@ -82,7 +82,7 @@
                 
                 <div class="widget-content" style="margin: 12px;">
 
-                  <a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addLauk">Tambah Data Lauk</a>
+                  <a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addSayur">Tambah Data Sayur</a>
                               <?php 
                                      $msg = Session::get('msg');
                                     if(!empty($msg)){  ?>
@@ -138,55 +138,55 @@
    
 </div>
 
-<div id="addLauk" class="modal fade" role="dialog">
+<div id="addSayur" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <form id="form-add-user" method="post" class="form-horizontal" style="margin-top: 12px;" action="<?php echo $url.'/admin/backend/pangan_crud/insert_data_pangan'; ?>">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Tambah Data Lauk</h4>
+        <h4 class="modal-title">Tambah Data Sayur</h4>
       </div>
       <div class="modal-body">
                     <div class="control-group">                     
-                      <label class="control-label" >Nama Lauk</label>
+                      <label class="control-label" >Nama Sayur</label>
                       <div class="controls">
                         <input type="hidden" name="type_pangan" value="lauk">
                         <input type="text" class="span4" id="nama_pangan_ins" name="nama_pangan" value="" required="">
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label">Kalori Lauk</label>
+                      <label class="control-label">Kalori Sayur</label>
                       <div class="controls">
                         <input type="text" class="span4" id="kalori_pangan_ins" name="kalori_pangan" value="" required="">
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Protein Lauk</label>
+                      <label class="control-label" >Protein Sayur</label>
                       <div class="controls">
                         <input type="text" class="span4" id="protein_pangan_ins" name="protein_pangan" value="" required="">
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Lemak Lauk</label>
+                      <label class="control-label" >Lemak Sayur</label>
                       <div class="controls">
                         <input type="text" class="span4" id="lemak_pangan_ins" name="lemak_pangan" value="" required="">
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Satuan Pangan</label>
+                      <label class="control-label" >Satuan Sayur</label>
                       <div class="controls">
                         <input type="text" class="span4" id="satuan_pangan_ins" name="satuan_pangan" value="" required="">
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Nominal Satuan</label>
+                      <label class="control-label" >Nominal Sayur</label>
                       <div class="controls">
                         <input type="text" class="span4" id="nominal_satuan_ins" name="nominal_satuan" value="" required="">
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Harga Pangan</label>
+                      <label class="control-label" >Harga Sayur</label>
                       <div class="controls">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <input type="text" class="span4" id="harga_pangan_ins" name="harga_pangan" value="" required="">
@@ -205,18 +205,18 @@
 
 
 
-<div id="updateLauk" class="modal fade" role="dialog">
+<div id="updateSayur" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <form id="form-add-user" method="post" class="form-horizontal" style="margin-top: 12px;" action="<?php echo $url.'/admin/backend/pangan_crud/update_data_pangan'; ?>">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Tambah Data Lauk</h4>
+        <h4 class="modal-title">Perbaruhui Data Sayur</h4>
       </div>
       <div class="modal-body">
                     <div class="control-group">                     
-                      <label class="control-label" >Nama Lauk</label>
+                      <label class="control-label" >Nama Sayur</label>
                       <div class="controls">
                         <input type="hidden"  id="id_pangan_up" name="id_pangan" value="">
                         <input type="hidden" name="type_pangan" value="lauk">
@@ -224,44 +224,44 @@
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Kalori Lauk</label>
+                      <label class="control-label" >Kalori Sayur</label>
                       <div class="controls">
                         <input type="text" class="span4" id="kalori_pangan_up" name="kalori_pangan" value="" required="">
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Protein Lauk</label>
+                      <label class="control-label" >Protein Sayur</label>
                       <div class="controls">
                         <input type="text" class="span4" id="protein_pangan_up" name="protein_pangan" value="" required="">
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Lemak Lauk</label>
+                      <label class="control-label" >Lemak Sayur</label>
                       <div class="controls">
                         <input type="text" class="span4" id="lemak_pangan_up" name="lemak_pangan" value="" required="">
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Satuan Pangan</label>
+                      <label class="control-label" >Satuan Sayur</label>
                       <div class="controls">
                         <input type="text" class="span4" id="satuan_pangan_up" name="satuan_pangan" value="" required="">
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Nominal Satuan</label>
+                      <label class="control-label" >Nominal Sayur</label>
                       <div class="controls">
                         <input type="text" class="span4" id="nominal_satuan_up" name="nominal_satuan" value="" required="">
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label">Harga Pangan</label>
+                      <label class="control-label">Harga Sayur</label>
                       <div class="controls">
                         <input type="text" class="span4" id="harga_pangan_up" name="harga_pangan" value="" required="">
                       </div>        
                     </div> 
       </div>
       <div class="modal-footer">
-        <a class="btn btn-info" id="upData">Tambah Data Lauk</a>
+        <a class="btn btn-info" id="upData">Update  Data Lauk</a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </form>
@@ -286,7 +286,7 @@
           processing : true,
           serverside : true,
           seraching  : true,
-          ajax       : 'data/list_pangan_json/lauk',
+          ajax       : 'data/list_pangan_json/sayur',
           columns    : [
                           {data : 'id_pangan',name : 'id_pangan'},
                           {data : 'nama_pangan', name : 'nama_pangan'},
@@ -348,14 +348,7 @@
 
 
         $('#table-lauk').on('click','[id=btnUpdate]', function(){
-            // let id_pangan        = $(this).data('id_pangan');
-            // let nama_pangan      = $(this).data('nama_pangan');
-            // let kalori_pangan    = $(this).data('kalori_pangan');
-            // let protein_pangan   = $(this).data('protein_pangan');
-            // let lemak_pangan     = $(this).data('lemak_pangan');
-            // let satuan_pangan    = $(this).data('satuan_pangan');
-            // let nominal_satuan   = $(this).data('nominal_satuan');
-            // let harga_pangan     = $(this).data('harga_pangan');
+            
              
              $('#id_pangan_up').val($(this).data('id_pangan'));
              $('#nama_pangan_up').val($(this).data('nama_pangan'));
@@ -366,7 +359,7 @@
              $('#nominal_satuan_up').val($(this).data('nominal_satuan'));
              $('#harga_pangan_up').val($(this).data('harga_pangan'));
 
-             $('#updateLauk').modal('show');
+             $('#updateSayur').modal('show');
 
 
         });

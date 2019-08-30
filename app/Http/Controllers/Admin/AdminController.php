@@ -144,7 +144,7 @@ class AdminController extends Controller
 	{
 		$data = array
 				(
-					"title"    => "sayur",
+					"title"    => "makanan pokok",
 					"url"      => $this->url->to('/'),
 					"part"     => array
 								(
@@ -153,7 +153,23 @@ class AdminController extends Controller
 								)
 				);
 
-		return view('admin/makanpoko', $data);
+		return view('admin/makanan_pokok', $data);
+	}
+
+	public function menu_view(Request $request)
+	{
+		$data = array
+				(
+					"title"    => "menu",
+					"url"      => $this->url->to('/'),
+					"part"     => array
+								(
+									"header"  => view('part/header-menu-admin', $this->baseUrl()),
+									"menu"    => view('part/menu-admin', $this->baseUrl())
+								)
+				);
+
+		return view('admin/menu', $data);
 	}
 
 

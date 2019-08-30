@@ -85,9 +85,14 @@ Route::group(['middleware' => 'AuthPansus:admin'], function(){
 	  		"as"   => "web.admin.sayur",
 	  ]);
 
-	  Route::get('admin/pangan_pokoo', [
+	  Route::get('admin/makanan_pokok', [
 	  		"uses" => "Admin\AdminController@makanpokok_view",
 	  		"as"   => "web.admin.makanpokok_view",
+	  ]);
+
+	  Route::get('admin/menu', [
+	  		"uses" => "Admin\AdminController@menu_view",
+	  		"as"   => "web.admin.menu",
 	  ]);
 
 
@@ -118,12 +123,12 @@ Route::group(['middleware' => 'AuthPansus:admin'], function(){
 	  		"as"    => "web.admin.info_crud",
 	  ]);
 
-	  Route::get('admin/pangan_crud/{type}', [
+	  Route::post('admin/backend/pangan_crud/{type}', [
 	  		"uses" 	=> "Admin\AdminBackendController@pangan_crud",
 	  		"as"	=> "web.admin.pangan_crud"
 	  ]);
 
-	  
+	   
 
 	  // dattable
 
