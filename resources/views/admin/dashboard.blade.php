@@ -21,7 +21,7 @@
   <div class="navbar-inner">
     <div class="container"> 
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
-                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="index.html">Bootstrap Admin Template </a>
+                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="index.html"><img src="<?php echo $url .'/img/logo.jpg'; ?>" style="max-height: 80px; max-width: 120px;"> </a>
       <div class="nav-collapse">
         <ul class="nav pull-right">
           
@@ -58,7 +58,7 @@
   <div class="main-inner">
     <div class="container">
       <div class="row">
-        <div class="span4">
+        <div class="span12">
 
          {!!$part['menu']!!}
           <!-- /widget -->

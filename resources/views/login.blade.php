@@ -31,7 +31,8 @@
 				<span class="icon-bar"></span>
 			</a>
 			<a class="brand" href="#" hidden=""><!-- 
-				SPK Gizi Panti Asuhan Darun Najah -->				
+				SPK Gizi Panti Asuhan Darun Najah -->	
+				<img src="<?php echo $url .'/img/logo.jpg'; ?>" style="max-height: 80px; max-width: 120px;">			
 			</a>		
 			
 			<div class="nav-collapse">
