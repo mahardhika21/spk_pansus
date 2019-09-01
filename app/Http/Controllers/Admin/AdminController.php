@@ -106,6 +106,73 @@ class AdminController extends Controller
 	}
 
 
+	public function lauk_view(Request $request)
+	{
+		$data = array 
+				(
+					"title"    => "lauk",
+					"url"      => $this->url->to('/'),
+					"part"     => array
+								(
+									"header"   => view('part/header-menu-admin', $this->baseUrl()),
+									"menu" 	   => view('part/menu-admin', $this->baseUrl())
+								)
+				);
+
+		return view('admin/lauk', $data);
+	}
+
+
+	public function sayur_view(Request $request)
+	{
+		$data = array
+				(
+					"title"    => "sayur",
+					"url"      => $this->url->to('/'),
+					"part"     => array
+								(
+									"header"  => view('part/header-menu-admin', $this->baseUrl()),
+									"menu"    => view('part/menu-admin', $this->baseUrl())
+								)
+				);
+
+		return view('admin/sayur', $data);
+	}
+
+
+	public function makanpokok_view(Request $request)
+	{
+		$data = array
+				(
+					"title"    => "makanan pokok",
+					"url"      => $this->url->to('/'),
+					"part"     => array
+								(
+									"header"  => view('part/header-menu-admin', $this->baseUrl()),
+									"menu"    => view('part/menu-admin', $this->baseUrl())
+								)
+				);
+
+		return view('admin/makanan_pokok', $data);
+	}
+
+	public function menu_view(Request $request)
+	{
+		$data = array
+				(
+					"title"    => "menu",
+					"url"      => $this->url->to('/'),
+					"part"     => array
+								(
+									"header"  => view('part/header-menu-admin', $this->baseUrl()),
+									"menu"    => view('part/menu-admin', $this->baseUrl())
+								)
+				);
+
+		return view('admin/menu', $data);
+	}
+
+
 
 
 

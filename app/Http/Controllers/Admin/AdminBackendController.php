@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Model\Extra;
 use App\Model\Users;
+use App\Model\Pangan;
 use DataTables;
 use Illuminate\Support\Facades\Validator;
 use App\Helpers\ValidatorHelpers;
@@ -200,6 +201,11 @@ class AdminBackendController extends Controller
 		$sessi = $request->session()->get('roleAuth');
 		return DataTables::of(User::where('username','!=',$sessi['username'])->get())->make('true');
 	}	  
+    
+    function list_pangan_json(Request $request, $type)
+    {
+    	return DataTables::of(Pangan::where('type_pangan', $type)->get())->make('true');	
+    }
 
 
 	public function users_crud(Request $request, $type)
@@ -319,19 +325,13 @@ class AdminBackendController extends Controller
 	}
 
 
-	public function pangan_crud(Request $request, $type, $pangan)
+	public function pangan_crud(Request $request, $type)
 	{
-		//$rule = New ValidatorHelpers();
-		//echo $type;
-		//echo $this->rule->coba();
-
-		//echo '<pre>'.print_r($this->rule->rulesValidator($type), true) .'</pre>';
-	   // echo '<pre>'. print_r( ValidatorHelpers::rulesValidator('insert_data_pangan'), true).'</pre>';	
 
 		if($type == "insert_data_pangan")
 		{
 
-			$validator = Validator::make($request->all(), $this->rule->rulesValidator($type), $this->rule->messageValidator($type))
+			$validator = Validator::make($request->all(), $this->rule->rulesValidator($type), $this->rule->messageValidator($type));
 
 			if($validator->fails())
 			{
@@ -339,20 +339,32 @@ class AdminBackendController extends Controller
 				$resp['code']   = 'danger';
 				$resp['message'] = $validator->messages()->first();
 
-				return redirect('admin/'. $pangan);
+				return redirect('admin/'. $request->input('type_pangan'))->with(['msg' => $resp]);
 			}
 
 			DB::beginTransaction();
 
 			try
 			{
-				Pangan::insert($request->all());
+				$arr_data = array
+							(
+								"nama_pangan"   	 => $request->input('nama_pangan'),
+								"type_pangan"   	 => $request->input('type_pangan'),
+								"kalori_pangan" 	 => $request->input('kalori_pangan'),
+								"protein_pangan"     => $request->input('protein_pangan'),
+								"lemak_pangan"       => $request->input('lemak_pangan'),
+								"satuan_pangan"      => $request->input('satuan_pangan'),
+								"nominal_satuan"     => $request->input('nominal_satuan'),
+								"harga_pangan"       => $request->input('harga_pangan')
+							);
+
+				Pangan::insert($arr_data);
 
 				DB::commit();
-				$resp['status'] = 'true';
-				$resp['code']   = 'danger';
-				$resp['message'] = $e->getMessage();
 
+				$resp['status'] = 'true';
+				$resp['code']   = 'success';
+				$resp['message'] = "succes insert data ". $request->input('type_pangan') ;
 
 
 			}catch(\Illuminate\Database\QueryException $e)
@@ -362,14 +374,89 @@ class AdminBackendController extends Controller
 				$resp['message'] = $e->getMessage();	
 			}
 
-		}elseif($type == "update_data_pangan")
+		}
+		elseif($type == "update_data_pangan")
 		{
+			$typeValidator = "insert_data_pangan";
 
-		}elseif($type === "delete_data_pangan")
+			$validator = Validator::make($request->all(), $this->rule->rulesValidator($typeValidator));
+
+			if($validator->fails())
+			{
+				$resp['status']  = 'false';
+				$resp['code']    = 'danger';
+				$reps['message'] = $validator->message()->first();
+
+				return redirect('admin/' . $request->input('type_pangan'))->with(['msg' => $resp]);
+			}
+
+			  DB::beginTransaction();
+
+			try
+			{
+				$arr_data = array
+							(
+								"nama_pangan"   	 => $request->input('nama_pangan'),
+								"type_pangan"   	 => $request->input('type_pangan'),
+								"kalori_pangan" 	 => $request->input('kalori_pangan'),
+								"protein_pangan"     => $request->input('protein_pangan'),
+								"lemak_pangan"       => $request->input('lemak_pangan'),
+								"satuan_pangan"      => $request->input('satuan_pangan'),
+								"nominal_satuan"     => $request->input('nominal_satuan'),
+								"harga_pangan"       => $request->input('harga_pangan')
+							);
+
+			    Pangan::where('id_pangan', $request->input('id_pangan'))->update($arr_data);
+
+			    DB::commit();
+
+			    $resp['status'] = 'true';
+				$resp['code']   = 'success';
+				$resp['message'] = "succes update data ". $request->input('type_pangan') ;
+
+
+			}catch(\Illuminate\Database\QueryException $e)
+			{
+				$resp['status']  = 'false';
+				$resp['code']    = 'danger';
+				$resp['message'] = $e->getMessage();
+			}
+
+			return redirect('admin/'. $request->input('type_pangan'))->with(['msg' => $resp]);
+		}
+		elseif($type === "delete_data_pangan")
 		{
+			if(count(Pangan::where('id_pangan', $request->input('id_pangan'))->get())> 0)
+			{
+				DB::beginTransaction();
 
-		}else{
-			
+				try
+				{
+					Pangan::where('id_pangan', $request->input('id_pangan'))->delete();
+
+					DB::commit();
+
+				    $resp['status'] = 'true';
+					$resp['code']   = 'success';
+					$resp['message'] = "succes delete  data ". $request->input('type_pangan');
+
+
+				}catch(\Illuminate\Database\QueryException $e)
+				{
+					$resp['status']  = 'false';
+					$resp['code']    = 'danger';
+					$resp['message'] = $e->getMessage();
+				}
+			}
+			else
+			{
+				$resp['status']  = 'false';
+				$resp['code']    = 'danger';
+				$resp['message'] = 'delete data' .$request->input('type_pangan').' gagal, data tidak dtemukan';
+			}
+
+			return response()->json($resp, 200);
+>>>>>>> 312938813de5fba03a8dc5408395c1d1de1f81a5
 		}
 
 	}

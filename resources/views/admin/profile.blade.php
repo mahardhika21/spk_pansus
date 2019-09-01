@@ -58,7 +58,7 @@
   <div class="main-inner">
     <div class="container">
       <div class="row">
-        <div class="span4">
+        <div class="span6">
 
          {!!$part['menu']!!}
           <!-- /widget -->
@@ -70,7 +70,7 @@
 <?php //echo '<pre>'.print_r($profile, true) .'</pre>';
     // echo $profile[0]['name'];
  ?>
-        <div class="span8">
+        <div class="span6">
           <div class="widget widget-nopad">
             <div class="widget-header"> <i class="fa fa-user fa-lg"></i>
               <h3> Update Profile Admin</h3>
