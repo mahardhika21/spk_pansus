@@ -362,7 +362,16 @@ class AdminBackendController extends Controller
 				$resp['message'] = $e->getMessage();	
 			}
 
+		}elseif($type == "update_data_pangan")
+		{
+
+		}elseif($type === "delete_data_pangan")
+		{
+
+		}else{
+			
 		}
+
 	}
 
 
