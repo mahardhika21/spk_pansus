@@ -374,6 +374,8 @@ class AdminBackendController extends Controller
 				$resp['message'] = $e->getMessage();	
 			}
 
+			return redirect('admin/'. $request->input('type_pangan'))->with(['msg' => $resp]);
+
 		}
 		elseif($type == "update_data_pangan")
 		{
@@ -456,7 +458,7 @@ class AdminBackendController extends Controller
 			}
 
 			return response()->json($resp, 200);
->>>>>>> 312938813de5fba03a8dc5408395c1d1de1f81a5
+
 		}
 
 	}
