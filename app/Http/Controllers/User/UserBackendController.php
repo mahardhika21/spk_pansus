@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Model\Extra;
 use App\Model\Users;
+use App\Model\Menu;
 use DataTables;
 
 class UserBackendController extends Controller
@@ -123,6 +124,12 @@ class UserBackendController extends Controller
 
 			
 		}
+
+
+ function list_menu_json(Request $request)
+    {
+    	return DataTables::of(Menu::orderBy('id_menu','desc')->get())->make('true');
+    }
 
 
 		

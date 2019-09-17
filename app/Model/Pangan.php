@@ -9,5 +9,5 @@ class Pangan extends Model
 
 		protected $primarykey = 'id_pangan';
 
-		protected $filelable = ['id_pangan','nama_pangan','type_pangan','kalori_pangan','protein_pangan','lemak_pangan','satuan_pangan','nominal_satuan','harga_pangan','insert_at','updated_at','id_user'];
+		protected $filelable = ['id_pangan','nama_pangan','type_pangan','kalori_pangan','protein_pangan','lemak_pangan','karbo_pangan','harga_pangan','insert_at','updated_at','id_user'];
 }

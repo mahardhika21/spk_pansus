@@ -81,11 +81,11 @@ Route::group(['middleware' => 'AuthPansus:admin'], function(){
 	  ]);
 
 	  Route::get('admin/sayur', [
-	  		"uses" => "Admin\AdminController@sayur_view",
+	  		"uses" => "Admin\AdminController@sayur_view", 
 	  		"as"   => "web.admin.sayur",
 	  ]);
 
-	  Route::get('admin/makanan_pokok', [
+	  Route::get('admin/mpokok', [
 	  		"uses" => "Admin\AdminController@makanpokok_view",
 	  		"as"   => "web.admin.makanpokok_view",
 	  ]);
@@ -93,6 +93,11 @@ Route::group(['middleware' => 'AuthPansus:admin'], function(){
 	  Route::get('admin/menu', [
 	  		"uses" => "Admin\AdminController@menu_view",
 	  		"as"   => "web.admin.menu",
+	  ]);
+
+	  Route::get('admin/gizi', [
+	  		"uses" => "Admin\AdminController@gizi_view",
+	  		"as"   => "web.admin.gizi",
 	  ]);
 
 
@@ -128,6 +133,31 @@ Route::group(['middleware' => 'AuthPansus:admin'], function(){
 	  		"as"	=> "web.admin.pangan_crud"
 	  ]);
 
+	  Route::post('admin/backend/kecukupan_gizi_crud/{type}', [
+	  		"uses"  => "Admin\AdminBackendController@kecukupan_gizi_crud",
+	  		"as"    => "web.kecukupan_gizi.crud",
+	  ]);
+
+	  Route::get('admin/backend/generate_menu', [
+	  		"uses"   => 'Admin\AdminBackendController@generate_menu',
+	  		"as"     => 'web.admin.generate_menu'
+	  ]);
+
+	  Route::post('admin/backend/save_menu',[
+	  		"uses"   => 'Admin\AdminBackendController@save_menu',
+	  		"as"     => 'web.admin.generate_menu'
+	  ]);
+
+	  Route::post('admin/backend/delete_menu', [
+	  		"uses"  => 'Admin\AdminBackendController@delete_menu',
+	  		"as"    => "web.admin.delete_menu",
+	  ]);
+
+	  Route::get('admin/backend/get_menu_detail/{id}', [
+	  		"uses"  => 'Admin\AdminBackendController@get_menu_detail',
+	  		"as"    => "web.admin.delete_menu",
+	  ]);
+
 	   
 
 	  // dattable
@@ -140,6 +170,17 @@ Route::group(['middleware' => 'AuthPansus:admin'], function(){
 	  Route::get('admin/data/list_pangan_json/{type}', [
 	  		"uses"  => "Admin\AdminBackendController@list_pangan_json",
 	  		"as"    => "web.admin.list_pangan_json",
+	  ]);
+
+
+	  Route::get('admin/data/list_gizi_json/', [
+	  		"uses"  => "Admin\AdminBackendController@list_gizi_json",
+	  		"as"    => "web.admin.list_pangan_json",
+	  ]);
+
+	  Route::get('admin/data/list_menu_json', [
+	  		"uses"  => "Admin\AdminBackendController@list_menu_json",
+	  		"as"	=> "web.admin.list_menu_json",
 	  ]);
 
 	
@@ -165,6 +206,8 @@ Route::group(['middleware' => 'AuthPansus:user'], function(){
 	  		"as"    => "web.user.profile",
 	  ]);
 
+
+
 	  //post data
 
 	   Route::post('user/backend/reset_password', [
@@ -175,6 +218,19 @@ Route::group(['middleware' => 'AuthPansus:user'], function(){
 	  Route::post('user/backend/profile_crud/{type}', [
 	  		"uses"  => "User\UserBackendController@profile_crud",
 	  		"as"    => "web.admin.profile_crud",
+	  ]);
+
+
+	  // list datatables
+
+	  Route::get('user/data/list_menu_json', [
+	  		"uses"  => "User\UserBackendController@list_menu_json",
+	  		"as"	=> "web.admin.list_menu_json",
+	  ]);
+
+	  Route::get('user/backend/get_menu_detail/{id}', [
+	  		"uses"  => 'Admin\AdminBackendController@get_menu_detail',
+	  		"as"    => "web.admin.delete_menu",
 	  ]);
 
 

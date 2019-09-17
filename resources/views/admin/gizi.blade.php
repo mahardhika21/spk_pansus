@@ -74,15 +74,14 @@
         <div class="span12">
           <div class="widget widget-nopad">
             <div class="widget-header"> 
-              <h3> Data Lauk</h3><i class="fa fa-cutlery"></i>
+              <h3> Data Keckupan Gizi</h3>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
               <div class="widget big-stats-container">
                 
                 <div class="widget-content" style="margin: 12px;">
-
-                  <a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addLauk">Tambah Data Lauk</a>
+                  <a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addGizi">Tambah Data Kecukupan Gizi</a>
                               <?php 
                                      $msg = Session::get('msg');
                                     if(!empty($msg)){  ?>
@@ -92,22 +91,20 @@
                                        <?php } ?>
                                        
                                       <div class="table-responsive">
-                                                            <table class="table" id="table-lauk" style="margin: 12px;">
+                                                            <table class="table" id="table-gizi" style="margin: 12px;">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>#</th>
-                                                                        <th>nama pangan</th>
-                                                                        <th>kalori pangan</th>
-                                                                        <th>Protein pangan</th>
-                                                                        <th>Lemak pangan</th>
-                                                                        <th>karbohitrat pangan</th>
-                                                                        <th>Harga pangan</th>
+                                                                        <th>kalori minimum</th>
+                                                                        <th>protein minimu</th>
+                                                                        <th>Lemak Minimum</th>
+                                                                        <th>Karbo Minimum</th>
+                                                                        <th>Range age</th>
                                                                         <th>Option</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td></td>
                                                                         <td></td>
                                                                         <td></td>
                                                                         <td></td>
@@ -136,59 +133,53 @@
    
 </div>
 
-<div id="addLauk" class="modal fade" role="dialog">
+<div id="addGizi" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
-    <form id="form-add-user" method="post" class="form-horizontal" style="margin-top: 12px;" action="<?php echo $url.'/admin/backend/pangan_crud/insert_data_pangan'; ?>">
+    <form id="form-add-user" method="post" class="form-horizontal" style="margin-top: 12px;" action="<?php echo $url.'/admin/backend/kecukupan_gizi_crud/insert_data'; ?>">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Tambah Data Lauk</h4>
+        <h4 class="modal-title">Tambah Data Kecukupan Gizi</h4>
       </div>
       <div class="modal-body">
                     <div class="control-group">                     
-                      <label class="control-label" >Nama Lauk</label>
+                      <label class="control-label" >Kalori Minimum</label>
                       <div class="controls">
                         <input type="hidden" name="type_pangan" value="lauk">
-                        <input type="text" class="span4" id="nama_pangan_ins" name="nama_pangan" value="" required="">
+                        <input type="text" class="span4" id="nama_pangan_ins" name="kalori_minimum" value="" required="">
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label">Kalori Lauk</label>
+                      <label class="control-label">Protein Minimum</label>
                       <div class="controls">
-                        <input type="text" class="span4" id="kalori_pangan_ins" name="kalori_pangan" value="" required="">
+                        <input type="text" class="span4" id="kalori_pangan_ins" name="protein_minimum" value="" required="">
                          <small style="color: red;">satuan KKL (KKL)</small>
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Protein Lauk</label>
+                      <label class="control-label" >Lemak Minimum</label>
                       <div class="controls">
-                        <input type="text" class="span4" id="protein_pangan_ins" name="protein_pangan" value="" required="">
+                        <input type="text" class="span4" id="protein_pangan_ins" name="lemak_minimum" value="" required="">
                          <small style="color: red;">satuan gram (g)</small>
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Lemak Lauk</label>
+                      <label class="control-label" >Karbohitrat Minimum</label>
                       <div class="controls">
-                        <input type="text" class="span4" id="lemak_pangan_ins" name="lemak_pangan" value="" required="">
+                        <input type="text" class="span4" id="lemak_pangan_ins" name="karbo_minimum" value="" required="">
                          <small style="color: red;">satuan gram (g)</small>
                       </div>        
                     </div>
                      <div class="control-group">                     
-                      <label class="control-label" >Karbohidrat Lauk</label>
+                      <label class="control-label" >Range Usia</label>
                       <div class="controls">
-                        <input type="text" class="span4" id="karbo_pangan_ins" name="karbo_pangan" value="" required="">
-                         <small style="color: red;">satuan gram (g)</small>
+                        <input type="hidden" name="_token" value="<?php echo $csrfToken; ?>">
+                        <input type="text" class="span4" id="karbo_pangan_ins" name="range_age" value="" required="">
+                         <small style="color: red;">example 10 - 12 Tahun</small>
                       </div>        
                     </div>
-                    <div class="control-group">                     
-                      <label class="control-label" >Harga Pangan</label>
-                      <div class="controls">
-                        <input type="hidden" name="_token" value="{{csrf_token()}}">
-                        <input type="text" class="span4" id="harga_pangan_ins" name="harga_pangan" value="" required="">
-                         <small style="color: red;">Harga Per-Kg</small>
-                      </div>        
-                    </div> 
+                   
       </div>
       <div class="modal-footer">
         <a class="btn btn-info" id="insData">Tambah Data Lauk</a>
@@ -202,64 +193,55 @@
 
 
 
-<div id="updateLauk" class="modal fade" role="dialog">
+<div id="updateGizi" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
-    <form id="form-add-user" method="post" class="form-horizontal" style="margin-top: 12px;" action="<?php echo $url.'/admin/backend/pangan_crud/update_data_pangan'; ?>">
+    <form id="form-add-user" method="post" class="form-horizontal" style="margin-top: 12px;" action="<?php echo $url.'/admin/backend/kecukupan_gizi_crud/update_data'; ?>">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Update Data Lauk</h4>
+        <h4 class="modal-title">Perbarui Data Kecukupan Gizi</h4>
       </div>
       <div class="modal-body">
-                    <div class="control-group">                     
-                      <label class="control-label" >Nama Lauk</label>
+                  <div class="control-group">                     
+                      <label class="control-label" >Kalori Minimum</label>
                       <div class="controls">
-                        <input type="hidden"  id="id_pangan_up" name="id_pangan" value="">
-                        <input type="hidden" name="type_pangan" value="lauk">
-                        <input type="text" class="span4" id="nama_pangan_up" name="nama_pangan" value="" required="">
+                        <input type="hidden" name="id_kecukupan_gizi" id="id_kecukupan_gizi_up" value="">
+                        <input type="text" class="span4" id="kalori_minimum_up" name="kalori_minimum" value="" required="">
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Kalori Lauk</label>
+                      <label class="control-label">Protein Minimum</label>
                       <div class="controls">
-                        <input type="text" class="span4" id="kalori_pangan_up" name="kalori_pangan" value="" required="">
-                        <small style="color: red;">satuan kkal (KKL)</small>
+                        <input type="text" class="span4" id="protein_minimum_up" name="protein_minimum" value="" required="">
+                         <small style="color: red;">satuan KKL (KKL)</small>
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Protein Lauk</label>
+                      <label class="control-label" >Lemak Minimum</label>
                       <div class="controls">
-                        <input type="text" class="span4" id="protein_pangan_up" name="protein_pangan" value="" required="">
-                        <small style="color: red;">satuan gram (g)</small>
-                      </div>        
-                    </div>
-                    <div class="control-group">                     
-                      <label class="control-label" >Lemak Lauk</label>
-                      <div class="controls">
-                        <input type="text" class="span4" id="lemak_pangan_up" name="lemak_pangan" value="" required="">
-                        <small style="color: red;">satuan gram (g)</small>
-                      </div>        
-                    </div> 
-                     <div class="control-group">                     
-                      <label class="control-label" >karbohitrat Lauk</label>
-                      <div class="controls">
-                        <input type="text" class="span4" id="lemak_pangan_up" name="karbo_pangan" value="" required="">
+                        <input type="text" class="span4" id="lemak_minimum_up" name="lemak_minimum" value="" required="">
                          <small style="color: red;">satuan gram (g)</small>
                       </div>        
-                    </div> 
+                    </div>
                     <div class="control-group">                     
-                      <label class="control-label">Harga Pangan</label>
+                      <label class="control-label" >Karbohitrat Minimum</label>
                       <div class="controls">
-                          <input type="hidden" name="_token" value="{{csrf_token()}}">
-                        <input type="text" class="span4" id="harga_pangan_up" name="harga_pangan" value="" required="">
-                         <small style="color: red;">harga per-KG</small>
+                        <input type="text" class="span4" id="karbo_minimum_up" name="karbo_minimum" value="" required="">
+                         <small style="color: red;">satuan gram (g)</small>
                       </div>        
-                    </div> 
+                    </div>
+                     <div class="control-group">                     
+                      <label class="control-label" >Range Usia</label>
+                      <div class="controls">
+                        <input type="hidden" name="_token" value="<?php echo $csrfToken; ?>">
+                        <input type="text" class="span4" id="range_age_up" name="range_age" value="" required="">
+                         <small style="color: red;">example 10 - 12 Tahun</small>
+                      </div>        
+                    </div>
       </div>
       <div class="modal-footer">
-       <!--  <a class="btn btn-info" id="upData">Tambah Data Lauk</a> -->
-       <button class="btn btn-info" type="submit">Update Data Lauk</button>
+        <button class="btn btn-info" type="submit">Update Data</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </form>
@@ -280,22 +262,21 @@
 <script>
   $(function(){
       var baseUrl = '<?php echo $url; ?>';
-      var table = $('#table-lauk').DataTable({
+      var table = $('#table-gizi').DataTable({
           processing : true,
           serverside : true,
           seraching  : true,
-          ajax       : 'data/list_pangan_json/lauk',
+          ajax       : 'data/list_gizi_json',
           columns    : [
-                          {data : 'id_pangan',name : 'id_pangan'},
-                          {data : 'nama_pangan', name : 'nama_pangan'},
-                          {data : 'kalori_pangan', name : 'kalori_pangan'},
-                          {data : 'protein_pangan',name : 'protein_pangan'},
-                          {data : 'lemak_pangan', name : 'lemak_pangan'},
-                          {data : 'karbo_pangan', name : 'karbo_pangan'},
-                          {data : 'harga_pangan', name : 'nominal_satuan'},
+                          {data : 'id_kecukupan_gizi',name : 'id_kecukupan_gizi'},
+                          {data : 'kalori_minimum', name : 'kalori_minimum'},
+                          {data : 'protein_minimum', name : 'protein_minimum'},
+                          {data : 'lemak_minimum',name : 'lemak_minimum'},
+                          {data : 'karbo_minimum', name : 'karbo_minimum'},
+                          {data : 'range_age', name : 'range_age'},
                           {render : function(data, type, full, meta)
                             {
-                                return  "<button id='btnDelete' href='ss'  data-id_pangan="+full.id_pangan+" data-nama_pangan="+full.nama_pangan+" class='btn btn-danger btnDetails'>Hapus Data</button>"+ "<button id='btnUpdate' style='margin-top : 2px;' href='#' data-id_pangan="+full.id_pangan+" data-nama_pangan="+full.nama_pangan+" data-kalori_pangan="+full.kalori_pangan+"  data-protein_pangan="+full.protein_pangan+"  data-lemak_pangan="+full.lemak_pangan+"  data-satuan_pangan="+full.satuan_pangan+" data-nominal_satuan="+full.nominal_satuan+" data-harga_pangan="+full.harga_pangan+"   class='btn btn-info'>Perbaharui Data</button>";
+                                return  "<button id='btnDelete' href='ss'  data-id_kecukupan_gizi="+full.id_kecukupan_gizi+"  class='btn btn-danger btnDetails'>Hapus Data</button>"+ "<button id='btnUpdate' style='margin-top : 2px;' href='#' data-id_kecukupan_gizi="+full.id_kecukupan_gizi+" data-kalori_minimum="+full.kalori_minimum+" data-protein_minimum="+full.protein_minimum+"  data-lemak_minimum="+full.lemak_minimum+"  data-karbo_minimum="+full.karbo_minimum+"  data-range_age="+full.range_age+" data-nominal_satuan="+full.nominal_satuan+" data-harga_pangan="+full.harga_pangan+"   class='btn btn-info'>Perbaharui Data</button>";
                             }
                         }
                        ]
@@ -308,20 +289,19 @@
                 });
       }).draw();
 
-        $('#table-lauk').on('click','[id=btnDelete]', function(){
-                let id    = $(this).data('id_pangan');
-                let nama  = $(this).data('nama_pangan');
+        $('#table-gizi').on('click','[id=btnDelete]', function(){
+                let id    = $(this).data('id_kecukupan_gizi');
 
                 let token = '<?php echo $csrfToken; ?>';
 
-                cnf = confirm("Apakah Anda Yakin Menghapus Data " + nama );
+                cnf = confirm("Apakah Anda Yakin Menghapus Data Kecukupan Gizi ?" );
                 if(cnf)
                 {
                     $.ajax({
-                            url      : baseUrl + '/admin/backend/pangan_crud/delete_data_pangan/',
+                            url      : baseUrl + '/admin/backend/kecukupan_gizi_crud/delete_data/',
                             type     : 'POST',
                             dataType : 'JSON',
-                            data     : {id_pangan:id,_token:token}, 
+                            data     : {id:id,_token:token}, 
                             success  : function(resp)
                             {
                                     if(resp.message == 'true')
@@ -344,26 +324,16 @@
            });
 
 
-        $('#table-lauk').on('click','[id=btnUpdate]', function(){
-            // let id_pangan        = $(this).data('id_pangan');
-            // let nama_pangan      = $(this).data('nama_pangan');
-            // let kalori_pangan    = $(this).data('kalori_pangan');
-            // let protein_pangan   = $(this).data('protein_pangan');
-            // let lemak_pangan     = $(this).data('lemak_pangan');
-            // let satuan_pangan    = $(this).data('satuan_pangan');
-            // let nominal_satuan   = $(this).data('nominal_satuan');
-            // let harga_pangan     = $(this).data('harga_pangan');
-             
-             $('#id_pangan_up').val($(this).data('id_pangan'));
-             $('#nama_pangan_up').val($(this).data('nama_pangan'));
-             $('#kalori_pangan_up').val($(this).data('kalori_pangan'));
-             $('#protein_pangan_up').val($(this).data('protein_pangan'));
-             $('#lemak_pangan_up').val($(this).data('lemak_pangan'));
-             $('#satuan_pangan_up').val($(this).data('satuan_pangan'));
-             $('#nominal_satuan_up').val($(this).data('nominal_satuan'));
-             $('#harga_pangan_up').val($(this).data('harga_pangan'));
+        $('#table-gizi').on('click','[id=btnUpdate]', function(){     
+             $('#id_kecukupan_gizi_up').val($(this).data('id_kecukupan_gizi'));
+             $('#kalori_minimum_up').val($(this).data('kalori_minimum'));
+             $('#protein_minimum_up').val($(this).data('protein_minimum'));
+             $('#lemak_minimum_up').val($(this).data('lemak_minimum'));
+             $('#karbo_minimum_up').val($(this).data('karbo_minimum'));
+             $('#range_age_up').val($(this).data('range_age'));
+          
 
-             $('#updateLauk').modal('show');
+             $('#updateGizi').modal('show');
 
 
         });

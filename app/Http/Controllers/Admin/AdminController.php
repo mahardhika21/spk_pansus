@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Routing\UrlGenerator;
 use App\Model\Users;
 use App\Model\Extra;
+use App\Model\kecukupan_gizi;
 
 
 class AdminController extends Controller
@@ -162,6 +163,7 @@ class AdminController extends Controller
 				(
 					"title"    => "menu",
 					"url"      => $this->url->to('/'),
+					"gizi"     => kecukupan_gizi::get(),
 					"part"     => array
 								(
 									"header"  => view('part/header-menu-admin', $this->baseUrl()),
@@ -170,6 +172,23 @@ class AdminController extends Controller
 				);
 
 		return view('admin/menu', $data);
+	}
+
+
+	public function gizi_view(Request $request)
+	{
+		$data = array
+				(
+					"title"  => "kecukupan gizi",
+					"url"    => $this->url->to('/'),
+					"part"   => array
+								(
+									"header"  => view('part/header-menu-admin', $this->baseUrl()),
+									"menu"    => view('part/menu-admin', $this->baseUrl())
+								)
+				);
+				
+		return view('admin/gizi', $data);
 	}
 
 

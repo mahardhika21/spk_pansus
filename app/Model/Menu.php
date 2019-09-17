@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
-	protected $tabel = 'menu';
+	protected $table = 'menu';
 
 	protected $primarykey = 'id_menu';
 

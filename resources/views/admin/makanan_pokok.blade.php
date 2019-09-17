@@ -23,7 +23,7 @@
   <div class="navbar-inner">
     <div class="container"> 
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
-                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="index.html">Bootstrap Admin Template </a>
+                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="index.html">Gizi Panti </a>
       <div class="nav-collapse">
         <ul class="nav pull-right">
           
@@ -100,8 +100,7 @@
                                                                         <th>kalori pangan</th>
                                                                         <th>Protein pangan</th>
                                                                         <th>Lemak pangan</th>
-                                                                        <th>Satuan Pangan</th>
-                                                                        <th>Nominal Pangan</th>
+                                                                         <th>karbohitrat pangan</th>
                                                                         <th>Harga pangan</th>
                                                                         <th>Option</th>
                                                                     </tr>
@@ -114,8 +113,7 @@
                                                                         <td></td>
                                                                         <td></td>
                                                                         <td></td>
-                                                                        <td></td>
-                                                                        <td></td>
+                                                                       <td></td>
                                                                         <td></td>
                                                                     </tr>
                                                                 </tbody>
@@ -159,37 +157,37 @@
                       <label class="control-label">Kalori Makanan Pokok</label>
                       <div class="controls">
                         <input type="text" class="span4" id="kalori_pangan_ins" name="kalori_pangan" value="" required="">
+                         <small style="color: red;">satuan KKL (KKL)</small>
                       </div>        
                     </div>
                     <div class="control-group">                     
                       <label class="control-label" >Protein Makanan Pokok</label>
                       <div class="controls">
                         <input type="text" class="span4" id="protein_pangan_ins" name="protein_pangan" value="" required="">
+                        <small style="color: red;">satuan gram (g)</small>
                       </div>        
                     </div>
                     <div class="control-group">                     
                       <label class="control-label" >Lemak Makanan Pokok</label>
                       <div class="controls">
                         <input type="text" class="span4" id="lemak_pangan_ins" name="lemak_pangan" value="" required="">
+                        <small style="color: red;">satuan gram (g)</small>
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Satuan Makanan Pokok</label>
+                      <label class="control-label" >Karbohitrat Makanan Pokok</label>
                       <div class="controls">
-                        <input type="text" class="span4" id="satuan_pangan_ins" name="satuan_pangan" value="" required="">
+                        <input type="text" class="span4" id="karbo_pangan_ins" name="karbo_pangan" value="" required="">
+                        <small style="color: red;">satuan gram (g)</small>
                       </div>        
                     </div>
-                    <div class="control-group">                     
-                      <label class="control-label" >Nominal Makanan Pokok</label>
-                      <div class="controls">
-                        <input type="text" class="span4" id="nominal_satuan_ins" name="nominal_satuan" value="" required="">
-                      </div>        
-                    </div>
+                   
                     <div class="control-group">                     
                       <label class="control-label" >Harga Makanan Pokok</label>
                       <div class="controls">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <input type="text" class="span4" id="harga_pangan_ins" name="harga_pangan" value="" required="">
+                          <small style="color: red;">Harga per-Kilogram (kg)</small>
                       </div>        
                     </div> 
       </div>
@@ -227,41 +225,41 @@
                       <label class="control-label" >Kalori Makanan Pokok</label>
                       <div class="controls">
                         <input type="text" class="span4" id="kalori_pangan_up" name="kalori_pangan" value="" required="">
+                        <small style="color: red;">satuan KKL (KKL)</small>
                       </div>        
                     </div>
                     <div class="control-group">                     
                       <label class="control-label" >Protein Makanan Pokok</label>
                       <div class="controls">
                         <input type="text" class="span4" id="protein_pangan_up" name="protein_pangan" value="" required="">
+                           <small style="color: red;">satuan gram (g)</small>
                       </div>        
                     </div>
                     <div class="control-group">                     
                       <label class="control-label" >Lemak Makanan Pokok</label>
                       <div class="controls">
                         <input type="text" class="span4" id="lemak_pangan_up" name="lemak_pangan" value="" required="">
+                        <small style="color: red;">satuan gram (g)</small>
                       </div>        
                     </div>
-                    <div class="control-group">                     
-                      <label class="control-label" >Satuan Makanan Pokok</label>
+                  <div class="control-group">                     
+                      <label class="control-label" >Karbohitrat Makanan Pokok</label>
                       <div class="controls">
-                        <input type="text" class="span4" id="satuan_pangan_up" name="satuan_pangan" value="" required="">
-                      </div>        
-                    </div>
-                    <div class="control-group">                     
-                      <label class="control-label" >Nominal Makanan Pokok</label>
-                      <div class="controls">
-                        <input type="text" class="span4" id="nominal_satuan_up" name="nominal_satuan" value="" required="">
+                        <input type="text" class="span4" id="karbo_pangan_up" name="karbo_pangan" value="" required="">
+                        <small style="color: red;">satuan gram (g)</small>
                       </div>        
                     </div>
                     <div class="control-group">                     
                       <label class="control-label">Harga Makanan Pokok</label>
                       <div class="controls">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <input type="text" class="span4" id="harga_pangan_up" name="harga_pangan" value="" required="">
+                        <small style="color: red;">Harga per-Kilogram (kg)</small>
                       </div>        
                     </div> 
       </div>
       <div class="modal-footer">
-        <a class="btn btn-info" id="upData">Tambah Data Lauk</a>
+         <button class="btn btn-info" type="submit">Update Data</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </form>
@@ -293,9 +291,8 @@
                           {data : 'kalori_pangan', name : 'kalori_pangan'},
                           {data : 'protein_pangan',name : 'protein_pangan'},
                           {data : 'lemak_pangan', name : 'lemak_pangan'},
-                          {data : 'satuan_pangan', name : 'satuan_pangan'},
-                          {data : 'nominal_satuan', name : 'nominal_satuan'},
-                          {data : 'harga_pangan', name : 'nominal_satuan'},
+                          {data : 'karbo_pangan', name : 'karbo_pangan'},
+                          {data : 'harga_pangan', name : 'harga_pangan'},
                           {render : function(data, type, full, meta)
                             {
                                 return  "<button id='btnDelete' href='ss'  data-id_pangan="+full.id_pangan+" data-nama_pangan="+full.nama_pangan+" class='btn btn-danger btnDetails'>Hapus Data</button>"+ "<button id='btnUpdate' style='margin-top : 2px;' href='#' data-id_pangan="+full.id_pangan+" data-nama_pangan="+full.nama_pangan+" data-kalori_pangan="+full.kalori_pangan+"  data-protein_pangan="+full.protein_pangan+"  data-lemak_pangan="+full.lemak_pangan+"  data-satuan_pangan="+full.satuan_pangan+" data-nominal_satuan="+full.nominal_satuan+" data-harga_pangan="+full.harga_pangan+"   class='btn btn-info'>Perbaharui Data</button>";

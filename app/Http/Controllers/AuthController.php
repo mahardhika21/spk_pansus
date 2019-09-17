@@ -80,6 +80,7 @@ class AuthController extends Controller
 							   				"level"    => $log[0]->level,
 							   				"access"   => $log[0]->access,
 							   				"username" => $log[0]->username,
+							   				"id"       => $log[0]->id_user,
 										);
 							$request->session()->put('roleAuth', $data_log);
 

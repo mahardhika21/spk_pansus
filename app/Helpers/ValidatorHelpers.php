@@ -56,4 +56,32 @@ class ValidatorHelpers
 	{
 		return "coba;";
 	}
+
+
+	public function hari($tanggal)
+	{
+		  $day  = date('D', strtotime($tanggal));
+
+		  $hari = array
+           			(
+           				"Sun" => "Minggu",
+           				"Mon" => "Senin",
+           				"Tue" => "Selasa",
+           				"Wed" => "Rabu",
+           				"Thu" => "Kamis",
+           				"Fri" => "Jumat",
+           				"Sat" => "Sabtu"
+           			);
+
+		  if(array_key_exists($day, $hari))
+		  {
+		  	  return $hari[$day];
+		  }
+		  else
+		  {
+		  	  return $day;
+		  }
+
+           
+	}
 }

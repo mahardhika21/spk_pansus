@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Routing\UrlGenerator;
 use App\Model\Users;
 use App\Model\Extra;
+use App\Model\Menu;
 
 
 class UserController extends Controller
