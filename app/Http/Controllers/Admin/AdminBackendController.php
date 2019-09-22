@@ -229,7 +229,7 @@ class AdminBackendController extends Controller
 		{
 
 
-			// start validate
+			// start validate 
 			$rules = array(
 							"username" => "required|min:6|max:15",
 							"level"    => "required",
