@@ -15,7 +15,7 @@
 <link href="<?php echo $url .'/assets/css/pages/dashboard.css'; ?>" rel="stylesheet">
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 </head>
-<style type="text/css">
+<style type="text/css"> 
 
 </style>
 <body>
