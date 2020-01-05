@@ -1349,6 +1349,10 @@ public function save_menu(Request $request)
 
       					);
 
+ 		$menu['pagi']['total_harga'] = (int)$menu['pagi']['sayur']['harga']+(int)$menu['pagi']['lauk']['harga']+(int)$menu['pagi']['mpokok']['harga'];
+ 		$menu['siang']['total_harga'] = (int)$menu['siang']['sayur']['harga']+(int)$menu['siang']['lauk']['harga']+(int)$menu['siang']['mpokok']['harga'];
+ 		$menu['malam']['total_harga'] = (int)$menu['malam']['sayur']['harga']+(int)$menu['malam']['lauk']['harga']+(int)$menu['malam']['mpokok']['harga'];
+
        // $menu['total_harga'] = (int)$menu['pagi']['sayur']['harga']+(int)$menu['pagi']['lauk']['harga'] +(int)$menu['pagi']['mpokok']['harga']+(int)$menu['siang']['sayur']['harga']+(int)$menu['siang']['lauk']['harga'] +(int)$menu['siang']['mpokok']['harga']+(int)$menu['malam']['sayur']['harga']+(int)$menu['malam']['lauk']['harga'] +(int)$menu['malam']['mpokok']['harga'];
 
 		array_push($detail_menu, $menu);

@@ -97,7 +97,7 @@
                                                                     <tr>
                                                                         <th>#</th>
                                                                         <th>nama pangan</th>
-                                                                        <th>kalori pangan</th>
+                                                                       <!--  <th>kalori pangan</th> -->
                                                                         <th>Protein pangan</th>
                                                                         <th>Lemak pangan</th>
                                                                         <th>karbohitrat pangan</th>
@@ -108,7 +108,7 @@
                                                                 <tbody>
                                                                     <tr>
                                                                         <td></td>
-                                                                        <td></td>
+                                                                     <!--    <td></td> -->
                                                                         <td></td>
                                                                         <td></td>
                                                                         <td></td>
@@ -153,10 +153,10 @@
                         <input type="text" class="span4" id="nama_pangan_ins" name="nama_pangan" value="" required="">
                       </div>        
                     </div>
-                    <div class="control-group">                     
+                    <div class="control-group" style="display: none;">                     
                       <label class="control-label">Kalori Lauk</label>
                       <div class="controls">
-                        <input type="text" class="span4" id="kalori_pangan_ins" name="kalori_pangan" value="" required="">
+                        <input type="text" class="span4" id="kalori_pangan_ins" name="kalori_pangan" value="2.1" required="">
                          <small style="color: red;">satuan KKL (KKL)</small>
                       </div>        
                     </div>
@@ -221,7 +221,7 @@
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Kalori Lauk</label>
+                      <label class="control-label" style="display: none;">Kalori Lauk</label>
                       <div class="controls">
                         <input type="text" class="span4" id="kalori_pangan_up" name="kalori_pangan" value="" required="">
                         <small style="color: red;">satuan kkal (KKL)</small>
@@ -289,7 +289,7 @@
                           {data : 'id_pangan',name : 'id_pangan'},
                           {data : 'nama_pangan', name : 'nama_pangan'},
                           {data : 'kalori_pangan', name : 'kalori_pangan'},
-                          {data : 'protein_pangan',name : 'protein_pangan'},
+                          // {data : 'protein_pangan',name : 'protein_pangan'},
                           {data : 'lemak_pangan', name : 'lemak_pangan'},
                           {data : 'karbo_pangan', name : 'karbo_pangan'},
                           {data : 'harga_pangan', name : 'nominal_satuan'},
