@@ -100,7 +100,7 @@
                                                                      <!--    <th>kalori pangan</th> -->
                                                                         <th>Protein pangan</th>
                                                                         <th>Lemak pangan</th>
-                                                                        <th>Karbohitrat pangan</th>
+                                                                        <th>karbohidrat pangan</th>
                                                                         <th>Harga pangan</th>
                                                                         <th>Option</th>
                                                                     </tr>
@@ -176,7 +176,7 @@
                     </div>
                   
                     <div class="control-group">                     
-                      <label class="control-label" >Karbohidrat Lauk</label>
+                      <label class="control-label" >Karbohidrat sayur</label>
                       <div class="controls">
                         <input type="text" class="span4" id="karbo_pangan_ins" name="karbo_pangan" value="" required="">
                          <small style="color: red;">satuan gram (g)</small>
@@ -192,7 +192,7 @@
                     </div> 
       </div>
       <div class="modal-footer">
-        <a class="btn btn-info" id="insData">Tambah Data Lauk</a>
+        <a class="btn btn-info" id="insData">Tambah Data Sayaur</a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </form>

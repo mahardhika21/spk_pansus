@@ -100,7 +100,7 @@
                                                                        <!--  <th>kalori pangan</th> -->
                                                                         <th>Protein pangan</th>
                                                                         <th>Lemak pangan</th>
-                                                                        <th>karbohitrat pangan</th>
+                                                                        <th>karbohidrat pangan</th>
                                                                         <th>Harga pangan</th>
                                                                         <th>Option</th>
                                                                     </tr>
