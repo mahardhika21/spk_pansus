@@ -229,10 +229,7 @@
       <td colspan="4" style="text-align: center;"><b>Total Harga</b></td>
       <td id="tt_harga_makan">2</td>
     </tr>
-    <tr>
-      <td colspan="4" style="text-align: center;"><b>Total Harga</b></td>
-      <td id="tt_harga_makan">2</td>
-    </tr>
+   
   </tbody>
 </table>
                    

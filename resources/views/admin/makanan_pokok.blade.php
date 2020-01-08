@@ -296,7 +296,7 @@
                           {data : 'harga_pangan', name : 'harga_pangan'},
                           {render : function(data, type, full, meta)
                             {
-                                return  "<button id='btnDelete' href='ss'  data-id_pangan="+full.id_pangan+" data-nama_pangan="+full.nama_pangan+" class='btn btn-danger btnDetails'>Hapus Data</button>"+ "<button id='btnUpdate' style='margin-top : 2px;' href='#' data-id_pangan="+full.id_pangan+" data-nama_pangan="+full.nama_pangan+" data-kalori_pangan="+full.kalori_pangan+"  data-protein_pangan="+full.protein_pangan+"  data-lemak_pangan="+full.lemak_pangan+"  data-satuan_pangan="+full.satuan_pangan+" data-nominal_satuan="+full.nominal_satuan+" data-harga_pangan="+full.harga_pangan+"   class='btn btn-info'>Perbaharui Data</button>";
+                                return  "<button id='btnDelete' href='ss'  data-id_pangan="+full.id_pangan+" data-nama_pangan="+full.nama_pangan+" class='btn btn-danger btnDetails'>Hapus Data</button>"+ "<button id='btnUpdate' style='margin-top : 2px;' href='#' data-id_pangan="+full.id_pangan+" data-nama_pangan="+full.nama_pangan+" data-kalori_pangan="+full.kalori_pangan+"  data-protein_pangan="+full.protein_pangan+"  data-lemak_pangan="+full.lemak_pangan+"  data-satuan_pangan="+full.satuan_pangan+" data-nominal_satuan="+full.nominal_satuan+" data-harga_pangan="+full.harga_pangan+" data-karbo_pangan="+full.karbo_pangan+"   class='btn btn-info'>Perbaharui Data</button>";
                             }
                         }
                        ]
@@ -363,6 +363,7 @@
              $('#satuan_pangan_up').val($(this).data('satuan_pangan'));
              $('#nominal_satuan_up').val($(this).data('nominal_satuan'));
              $('#harga_pangan_up').val($(this).data('harga_pangan'));
+             $('#karbo_pangan_up').val($(this).data('karbo_pangan'));
 
              $('#updateMpokok').modal('show');
 
