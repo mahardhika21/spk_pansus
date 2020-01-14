@@ -242,7 +242,7 @@
                       </div>        
                     </div> 
                      <div class="control-group">                     
-                      <label class="control-label" >karbohitrat Lauk</label>
+                      <label class="control-label" >karbohidrat Lauk</label>
                       <div class="controls">
                         <input type="text" class="span4" id="lemak_pangan_up" name="karbo_pangan" value="" required="">
                          <small style="color: red;">satuan gram (g)</small>

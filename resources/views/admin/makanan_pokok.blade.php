@@ -176,7 +176,7 @@
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Karbohitrat Makanan Pokok</label>
+                      <label class="control-label" >karbohidrat Makanan Pokok</label>
                       <div class="controls">
                         <input type="text" class="span4" id="karbo_pangan_ins" name="karbo_pangan" value="" required="">
                         <small style="color: red;">satuan gram (g)</small>
@@ -244,7 +244,7 @@
                       </div>        
                     </div>
                   <div class="control-group">                     
-                      <label class="control-label" >Karbohitrat Makanan Pokok</label>
+                      <label class="control-label" >karbohidrat Makanan Pokok</label>
                       <div class="controls">
                         <input type="text" class="span4" id="karbo_pangan_up" name="karbo_pangan" value="" required="">
                         <small style="color: red;">satuan gram (g)</small>

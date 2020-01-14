@@ -165,7 +165,7 @@
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Karbohitrat Minimum</label>
+                      <label class="control-label" >karbohidrat Minimum</label>
                       <div class="controls">
                         <input type="text" class="span4" id="lemak_pangan_ins" name="karbo_minimum" value="" required="">
                          <small style="color: red;">satuan gram (g)</small>
@@ -225,7 +225,7 @@
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" >Karbohitrat Minimum</label>
+                      <label class="control-label" >karbohidrat Minimum</label>
                       <div class="controls">
                         <input type="text" class="span4" id="karbo_minimum_up" name="karbo_minimum" value="" required="">
                          <small style="color: red;">satuan gram (g)</small>
