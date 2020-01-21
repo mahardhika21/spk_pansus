@@ -401,7 +401,7 @@
                let id  = $('#id_kecukupan_gizi').val();
                let baseUrl = '<?php echo $url; ?>';
                let token = '<?php echo $csrfToken; ?>';
-               alert(tgl + ' '+ id);
+               //alert(tgl + ' '+ id);
 
                var simpleks = new Object();
                    simpleks.pagi  = {};

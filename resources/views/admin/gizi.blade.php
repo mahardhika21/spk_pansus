@@ -95,7 +95,7 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th>#</th>
-                                                                       <!--  <th>kalori minimum</th> -->
+                                                                        <th>kalori minimum</th>
                                                                         <th>protein minimu</th>
                                                                         <th>Lemak Minimum</th>
                                                                         <th>Karbo Minimum</th>
@@ -105,7 +105,7 @@
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
-                                                                       <!--  <td></td> -->
+                                                                        <td></td>
                                                                         <td></td>
                                                                         <td></td>
                                                                         <td></td>
@@ -143,11 +143,11 @@
         <h4 class="modal-title">Tambah Data Kecukupan Gizi</h4>
       </div>
       <div class="modal-body">
-                    <div class="control-group"  style="display: none;">                     
+                    <div class="control-group"  >                     
                       <label class="control-label" >Kalori Minimum</label>
                       <div class="controls">
                         <input type="hidden" name="type_pangan" value="lauk">
-                        <input type="text" class="span4" id="nama_pangan_ins" name="kalori_minimum" value="2000" required="">
+                        <input type="text" class="span4" id="nama_pangan_ins" name="kalori_minimum" value="" required="">
                       </div>        
                     </div>
                     <div class="control-group">                     
@@ -203,7 +203,7 @@
         <h4 class="modal-title">Perbarui Data Kecukupan Gizi</h4>
       </div>
       <div class="modal-body">
-                  <div class="control-group" style="display: none;">                     
+                  <div class="control-group" >                     
                       <label class="control-label" >Kalori Minimum</label>
                       <div class="controls">
                         <input type="hidden" name="id_kecukupan_gizi" id="id_kecukupan_gizi_up" value="">
@@ -269,7 +269,7 @@
           ajax       : 'data/list_gizi_json',
           columns    : [
                           {data : 'id_kecukupan_gizi',name : 'id_kecukupan_gizi'},
-                          // {data : 'kalori_minimum', name : 'kalori_minimum'},
+                          {data : 'kalori_minimum', name : 'kalori_minimum'},
                           {data : 'protein_minimum', name : 'protein_minimum'},
                           {data : 'lemak_minimum',name : 'lemak_minimum'},
                           {data : 'karbo_minimum', name : 'karbo_minimum'},

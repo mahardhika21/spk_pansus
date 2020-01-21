@@ -97,7 +97,7 @@
                                                                     <tr>
                                                                         <th>#</th>
                                                                         <th>nama pangan</th>
-                                                                       <!--  <th>kalori pangan</th> -->
+                                                                        <th>kalori pangan</th>
                                                                         <th>Protein pangan</th>
                                                                         <th>Lemak pangan</th>
                                                                         <th>karbohidrat pangan</th>
@@ -108,7 +108,7 @@
                                                                 <tbody>
                                                                     <tr>
                                                                         <td></td>
-                                                                     <!--    <td></td> -->
+                                                                        <td></td>
                                                                         <td></td>
                                                                         <td></td>
                                                                         <td></td>
@@ -153,10 +153,10 @@
                         <input type="text" class="span4" id="nama_pangan_ins" name="nama_pangan" value="" required="">
                       </div>        
                     </div>
-                    <div class="control-group" style="display: none;">                     
+                    <div class="control-group" >                     
                       <label class="control-label">Kalori Lauk</label>
                       <div class="controls">
-                        <input type="text" class="span4" id="kalori_pangan_ins" name="kalori_pangan" value="2.1" required="">
+                        <input type="text" class="span4" id="kalori_pangan_ins" name="kalori_pangan" value="" required="">
                          <small style="color: red;">satuan KKL (KKL)</small>
                       </div>        
                     </div>
@@ -244,7 +244,7 @@
                      <div class="control-group">                     
                       <label class="control-label" >karbohidrat Lauk</label>
                       <div class="controls">
-                        <input type="text" class="span4" id="lemak_pangan_up" name="karbo_pangan" value="" required="">
+                        <input type="text" class="span4" id="karbo_pangan_up" name="karbo_pangan" value="" required="">
                          <small style="color: red;">satuan gram (g)</small>
                       </div>        
                     </div> 
@@ -289,13 +289,13 @@
                           {data : 'id_pangan',name : 'id_pangan'},
                           {data : 'nama_pangan', name : 'nama_pangan'},
                           {data : 'kalori_pangan', name : 'kalori_pangan'},
-                          // {data : 'protein_pangan',name : 'protein_pangan'},
+                          {data : 'protein_pangan',name : 'protein_pangan'},
                           {data : 'lemak_pangan', name : 'lemak_pangan'},
                           {data : 'karbo_pangan', name : 'karbo_pangan'},
                           {data : 'harga_pangan', name : 'nominal_satuan'},
                           {render : function(data, type, full, meta)
                             {
-                                return  "<button id='btnDelete' href='ss'  data-id_pangan="+full.id_pangan+" data-nama_pangan="+full.nama_pangan+" class='btn btn-danger btnDetails'>Hapus Data</button>"+ "<button id='btnUpdate' style='margin-top : 2px;' href='#' data-id_pangan="+full.id_pangan+" data-nama_pangan="+full.nama_pangan+" data-kalori_pangan="+full.kalori_pangan+"  data-protein_pangan="+full.protein_pangan+"  data-lemak_pangan="+full.lemak_pangan+"  data-satuan_pangan="+full.satuan_pangan+" data-nominal_satuan="+full.nominal_satuan+" data-harga_pangan="+full.harga_pangan+"   class='btn btn-info'>Perbaharui Data</button>";
+                                return  "<button id='btnDelete' href='ss'  data-id_pangan="+full.id_pangan+" data-nama_pangan="+full.nama_pangan+" class='btn btn-danger btnDetails'>Hapus Data</button>"+ "<button id='btnUpdate' style='margin-top : 2px;' href='#' data-id_pangan="+full.id_pangan+" data-nama_pangan="+full.nama_pangan+" data-kalori_pangan="+full.kalori_pangan+"  data-protein_pangan="+full.protein_pangan+"  data-lemak_pangan="+full.lemak_pangan+"  data-satuan_pangan="+full.satuan_pangan+" data-nominal_satuan="+full.nominal_satuan+" data-harga_pangan="+full.harga_pangan+" data-karbo_pangan="+full.karbo_pangan+"   class='btn btn-info'>Perbaharui Data</button>";
                             }
                         }
                        ]
@@ -361,6 +361,7 @@
              $('#lemak_pangan_up').val($(this).data('lemak_pangan'));
              $('#satuan_pangan_up').val($(this).data('satuan_pangan'));
              $('#nominal_satuan_up').val($(this).data('nominal_satuan'));
+             $('#karbo_pangan_up').val($(this).data('karbo_pangan'));
              $('#harga_pangan_up').val($(this).data('harga_pangan'));
 
              $('#updateLauk').modal('show');
