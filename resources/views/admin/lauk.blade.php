@@ -221,7 +221,7 @@
                       </div>        
                     </div>
                     <div class="control-group">                     
-                      <label class="control-label" style="display: none;">Kalori Lauk</label>
+                      <label class="control-label" style="">Kalori Lauk</label>
                       <div class="controls">
                         <input type="text" class="span4" id="kalori_pangan_up" name="kalori_pangan" value="" required="">
                         <small style="color: red;">satuan kkal (KKL)</small>

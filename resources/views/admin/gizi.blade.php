@@ -144,7 +144,7 @@
       </div>
       <div class="modal-body">
                     <div class="control-group"  >                     
-                      <label class="control-label" >Kalori Minimum</label>
+                      <label class="control-label">Kalori Minimum</label>
                       <div class="controls">
                         <input type="hidden" name="type_pangan" value="lauk">
                         <input type="text" class="span4" id="nama_pangan_ins" name="kalori_minimum" value="" required="">
