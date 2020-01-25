@@ -19,7 +19,7 @@
 <style type="text/css">
 
 </style>
-<body>
+<body> 
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container"> 
@@ -572,6 +572,10 @@
 
      function simpleks_generate(r1,r2,r3,r4)
      {
+          console.log(r1);
+          console.log(r2);
+          console.log(r3);
+           console.log(r4);
           var input = {
               type: 'minimize',
               objective : 'x1 + x2 + x3',

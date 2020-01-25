@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo Yasmij</title>
+</head>
+<body>
+   <b>Silakan Inpect Elemen Untuk melihat data</b>
+<script src="simpleks/dist/yasmij.js"></script>
+<script type="text/javascript">
+	
+     function simpleks_generate(r1,r2,r3,r4)
+     {
+          var input = {
+              type: 'minimize',
+              objective : 'x1 + x2 + x3',
+              constraints : [
+                String(r1),String(r2),String(r3),String(r4)
+              ]
+          };
+
+      //console.log(input.constraints);
+      let output = YASMIJ.solve( input );
+
+      return output;
+     }
+</script>
+</body>
+</html>
