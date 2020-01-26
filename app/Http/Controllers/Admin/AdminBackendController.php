@@ -1265,7 +1265,10 @@ public function save_menu(Request $request)
       //  $menu['total_harga'] = (int)$menu['pagi']['sayur']['harga']+(int)$menu['pagi']['lauk']['harga'] +(int)$menu['pagi']['mpokok']['harga']+(int)$menu['siang']['sayur']['harga']+(int)$menu['siang']['lauk']['harga'] +(int)$menu['siang']['mpokok']['harga']+(int)$menu['malam']['sayur']['harga']+(int)$menu['malam']['lauk']['harga'] +(int)$menu['malam']['mpokok']['harga'];
 
       // echo '--------------- menu ----------';
-      // echo '<pre>'.print_r($menu, true).'</pre>';
+       // echo '<pre>'.print_r($req, true).'</pre>';
+       // echo '<pre>'.print_r($simpleks, true) .'<pre>';
+
+       // die();
 
        $index_pg = rand(1,3);
       $index_sg = rand(1,3);
@@ -1273,9 +1276,9 @@ public function save_menu(Request $request)
      $detail_menu = array();
      for($i=1; $i<4; $i++)
      {
-     	$total_harga_pagi = ($req['pangan']['sayur']['harga_gr'][(int)array_search($simpleks['pagi']['id_pangan']['x2'][0],$req['pangan']['sayur']['id'])] * $this->takaran_gnr(round($simpleks['pagi']['k'.$i]['result']['x2'], 2)))+($req['pangan']['lauk']['harga_gr'][(int)array_search($simpleks['pagi']['id_pangan']['x3'][0],$req['pangan']['lauk']['id'])] * $this->takaran_gnr(round($simpleks['pagi']['k'.$i]['result']['x3'], 2)))+($req['pangan']['lauk']['harga_gr'][(int)array_search($simpleks['pagi']['id_pangan']['x1'][0],$req['pangan']['mpokok']['id'])] * $this->takaran_gnr(round($simpleks['pagi']['k'.$i]['result']['x1'], 2)));
-     	$total_harga_siang = ($req['pangan']['sayur']['harga_gr'][(int)array_search($simpleks['siang']['id_pangan']['x2'][0],$req['pangan']['sayur']['id'])] * $this->takaran_gnr(round($simpleks['siang']['k'.$i]['result']['x2'], 2)))+($req['pangan']['lauk']['harga_gr'][(int)array_search($simpleks['siang']['id_pangan']['x3'][0],$req['pangan']['lauk']['id'])] * $this->takaran_gnr(round($simpleks['siang']['k'.$i]['result']['x3'], 2)))+($req['pangan']['lauk']['harga_gr'][(int)array_search($simpleks['siang']['id_pangan']['x1'][0],$req['pangan']['mpokok']['id'])] * $this->takaran_gnr(round($simpleks['siang']['k'.$i]['result']['x1'], 2)));
-     	$total_harga_malam = ($req['pangan']['sayur']['harga_gr'][(int)array_search($simpleks['malam']['id_pangan']['x2'][0],$req['pangan']['sayur']['id'])] * $this->takaran_gnr(round($simpleks['malam']['k'.$i]['result']['x2'], 2)))+($req['pangan']['lauk']['harga_gr'][(int)array_search($simpleks['malam']['id_pangan']['x3'][0],$req['pangan']['lauk']['id'])] * $this->takaran_gnr(round($simpleks['malam']['k'.$i]['result']['x3'], 2)))+($req['pangan']['lauk']['harga_gr'][(int)array_search($simpleks['malam']['id_pangan']['x1'][0],$req['pangan']['mpokok']['id'])] * $this->takaran_gnr(round($simpleks['malam']['k'.$i]['result']['x1'], 2)));
+     	$total_harga_pagi = ($req['pangan']['sayur']['harga_gr'][(int)array_search($simpleks['pagi']['id_pangan']['x2'][0],$req['pangan']['sayur']['id'])] * $this->takaran_gnr(round($simpleks['pagi']['k'.$i]['result']['x2'], 2)))+($req['pangan']['lauk']['harga_gr'][(int)array_search($simpleks['pagi']['id_pangan']['x3'][0],$req['pangan']['lauk']['id'])] * $this->takaran_gnr(round($simpleks['pagi']['k'.$i]['result']['x3'], 2)))+($req['pangan']['mpokok']['harga_gr'][(int)array_search($simpleks['pagi']['id_pangan']['x1'][0],$req['pangan']['mpokok']['id'])] * $this->takaran_gnr(round($simpleks['pagi']['k'.$i]['result']['x1'], 2)));
+     	$total_harga_siang = ($req['pangan']['sayur']['harga_gr'][(int)array_search($simpleks['siang']['id_pangan']['x2'][0],$req['pangan']['sayur']['id'])] * $this->takaran_gnr(round($simpleks['siang']['k'.$i]['result']['x2'], 2)))+($req['pangan']['lauk']['harga_gr'][(int)array_search($simpleks['siang']['id_pangan']['x3'][0],$req['pangan']['lauk']['id'])] * $this->takaran_gnr(round($simpleks['siang']['k'.$i]['result']['x3'], 2)))+($req['pangan']['mpokok']['harga_gr'][(int)array_search($simpleks['siang']['id_pangan']['x1'][0],$req['pangan']['mpokok']['id'])] * $this->takaran_gnr(round($simpleks['siang']['k'.$i]['result']['x1'], 2)));
+     	$total_harga_malam = ($req['pangan']['sayur']['harga_gr'][(int)array_search($simpleks['malam']['id_pangan']['x2'][0],$req['pangan']['sayur']['id'])] * $this->takaran_gnr(round($simpleks['malam']['k'.$i]['result']['x2'], 2)))+($req['pangan']['lauk']['harga_gr'][(int)array_search($simpleks['malam']['id_pangan']['x3'][0],$req['pangan']['lauk']['id'])] * $this->takaran_gnr(round($simpleks['malam']['k'.$i]['result']['x3'], 2)))+($req['pangan']['mpokok']['harga_gr'][(int)array_search($simpleks['malam']['id_pangan']['x1'][0],$req['pangan']['mpokok']['id'])] * $this->takaran_gnr(round($simpleks['malam']['k'.$i]['result']['x1'], 2)));
 
     
       $menu     =  array
@@ -1298,7 +1301,7 @@ public function save_menu(Request $request)
       													(
       														"name"   => $req['pangan']['mpokok']['name'][(int)array_search($simpleks['pagi']['id_pangan']['x1'][0],$req['pangan']['mpokok']['id'])],
       														"jumlah" => $this->takaran_gnr(round($simpleks['pagi']['k'.$i]['result']['x1'], 2)),
-      														"harga"  => $req['pangan']['lauk']['harga_gr'][(int)array_search($simpleks['pagi']['id_pangan']['x1'][0],$req['pangan']['mpokok']['id'])] * $this->takaran_gnr(round($simpleks['pagi']['k'.$i]['result']['x1'], 2)),
+      														"harga"  => $req['pangan']['mpokok']['harga_gr'][(int)array_search($simpleks['pagi']['id_pangan']['x1'][0],$req['pangan']['mpokok']['id'])] * $this->takaran_gnr(round($simpleks['pagi']['k'.$i]['result']['x1'], 2)),
       													),
       									'total_harga' => $total_harga_pagi,
       								),
@@ -1320,7 +1323,7 @@ public function save_menu(Request $request)
       													(
       														"name"   => $req['pangan']['mpokok']['name'][(int)array_search($simpleks['siang']['id_pangan']['x1'][0],$req['pangan']['mpokok']['id'])],
       														"jumlah" => $this->takaran_gnr(round($simpleks['siang']['k'.$i]['result']['x1'], 2)),
-      														"harga"  => $req['pangan']['lauk']['harga_gr'][(int)array_search($simpleks['siang']['id_pangan']['x1'][0],$req['pangan']['mpokok']['id'])] * $this->takaran_gnr(round($simpleks['siang']['k'.$i]['result']['x1'], 2)),
+      														"harga"  => $req['pangan']['mpokok']['harga_gr'][(int)array_search($simpleks['siang']['id_pangan']['x1'][0],$req['pangan']['mpokok']['id'])] * $this->takaran_gnr(round($simpleks['siang']['k'.$i]['result']['x1'], 2)),
       													),
       									'total_harga' => $total_harga_siang,
       								),
@@ -1342,7 +1345,7 @@ public function save_menu(Request $request)
       													(
       														"name"   => $req['pangan']['mpokok']['name'][(int)array_search($simpleks['malam']['id_pangan']['x1'][0],$req['pangan']['mpokok']['id'])],
       														"jumlah" => $this->takaran_gnr(round($simpleks['siang']['k'.$i]['result']['x1'], 2)),
-      														"harga"  => $req['pangan']['lauk']['harga_gr'][(int)array_search($simpleks['malam']['id_pangan']['x1'][0],$req['pangan']['mpokok']['id'])] * $this->takaran_gnr(round($simpleks['siang']['k'.$i]['result']['x1'], 2)),
+      														"harga"  => $req['pangan']['mpokok']['harga_gr'][(int)array_search($simpleks['malam']['id_pangan']['x1'][0],$req['pangan']['mpokok']['id'])] * $this->takaran_gnr(round($simpleks['siang']['k'.$i]['result']['x1'], 2)),
       													),
       									'total_harga' => $total_harga_malam,
       								),
@@ -1440,7 +1443,7 @@ function takaran_gnr($num)
 {
 	 if($num == 0 or $num < 0)
 	 {
-	 	return 35;
+	 	return 55;
 	 }
 	 else
 	 {
